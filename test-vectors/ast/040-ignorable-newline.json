@@ -1,0 +1,14 @@
+{
+    "type": "operation",
+    "operatorName": "or",
+    "operands": [
+	{
+	    "type": "phrase",
+	    "words": ["foo"]
+	},
+	{
+	    "type": "phrase",
+	    "words": ["barx"]
+	}
+    ]
+}
