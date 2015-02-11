@@ -1,0 +1,2 @@
+# It's syntactically valid, if not necessarily meaningful!
+foo bar ()
