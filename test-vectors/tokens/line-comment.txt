@@ -1,0 +1,4 @@
+# Ignore me!
+# Also ignore me!
+foo
+# Ignore this!

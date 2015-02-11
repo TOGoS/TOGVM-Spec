@@ -1,0 +1,10 @@
+[
+    {
+	"value": "foo",
+	"quoting": "bare"
+    },
+    {
+	"value": "\n",
+	"quoting": "bare"
+    }
+]
