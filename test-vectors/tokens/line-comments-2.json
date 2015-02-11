@@ -16,6 +16,10 @@
 	"quoting": "bare"
     },
     {
+	"value": "bar",
+	"quoting": "bare"
+    },
+    {
 	"value": "\n",
 	"quoting": "bare"
     }
