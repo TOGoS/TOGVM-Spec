@@ -1,14 +1,14 @@
 {
 	"type": "operation",
 	"operatorName": "+",
-	"operands": [
-		{
+	"operands": {
+		"left": {
 			"type": "phrase",
 			"words": ["1"]
 		},
-		{
+		"right": {
 			"type": "phrase",
 			"words": ["2"]
 		}
-	]
+	}
 }

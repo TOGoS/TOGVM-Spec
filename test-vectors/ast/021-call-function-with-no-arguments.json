@@ -1,13 +1,13 @@
 {
 	"type": "operation",
 	"operatorName": "(",
-	"operands": [
-		{
+	"operands": {
+		"left": {
 			"type": "phrase",
 			"words": ["foo","bar"]
 		},
-		{
+		"inner": {
 			"type": "void"
 		}
-	]
+	}
 }

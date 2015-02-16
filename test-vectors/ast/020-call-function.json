@@ -1,24 +1,24 @@
 {
 	"type": "operation",
 	"operatorName": "(",
-	"operands": [
-		{
+	"operands": {
+		"left": {
 			"type": "phrase",
 			"words": ["foo","bar"]
 		},
-		{
+		"inner": {
 			"type": "operation",
 			"operatorName": ",",
-			"operands": [
-				{
+			"operands": {
+				"left": {
 					"type": "phrase",
 					"words": ["baz"]
 				},
-				{
+				"right": {
 					"type": "phrase",
 					"words": ["quux"]
 				}
-			]
+			}
 		}
-	]
+	}
 }

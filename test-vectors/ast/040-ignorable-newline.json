@@ -1,14 +1,14 @@
 {
     "type": "operation",
     "operatorName": "or",
-    "operands": [
-	{
+    "operands": {
+	"left": {
 	    "type": "phrase",
 	    "words": ["foo"]
 	},
-	{
+	"right": {
 	    "type": "phrase",
 	    "words": ["bar"]
 	}
-    ]
+    }
 }
