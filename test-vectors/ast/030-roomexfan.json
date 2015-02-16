@@ -1,6 +1,6 @@
 {
     "type": "operation",
-    "operatorName": "and",
+    "operatorSymbol": "and",
     "operands": {
 	"left": {
 	    "type": "phrase",
@@ -8,11 +8,11 @@
 	},
 	"right": {
 	    "type": "operation",
-	    "operatorName": "(",
+	    "operatorSymbol": "(",
 	    "operands": {
 		"inner": {
 		    "type": "operation",
-		    "operatorName": "=",
+		    "operatorSymbol": "=",
 		    "operands": {
 			"left": {
 			    "type": "phrase",

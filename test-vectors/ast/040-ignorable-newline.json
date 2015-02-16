@@ -1,6 +1,6 @@
 {
     "type": "operation",
-    "operatorName": "or",
+    "operatorSymbol": "or",
     "operands": {
 	"left": {
 	    "type": "phrase",

@@ -1,10 +1,10 @@
 {
 	"type": "operation",
-	"operatorName": "+",
+	"operatorSymbol": "+",
 	"operands": {
 		"left": {
 			"type": "operation",
-			"operatorName": "+",
+			"operatorSymbol": "+",
 			"operands": {
 				"left": {
 					"type": "phrase",
@@ -12,7 +12,7 @@
 				},
 				"right": {
 					"type": "operation",
-					"operatorName": "*",
+					"operatorSymbol": "*",
 					"operands": {
 						"left": {
 							"type": "phrase",
