@@ -1,0 +1,254 @@
+{
+	"tokens": [
+		{
+			"symbol": "(",
+			"forceBreakBefore": true,
+			"forceBreakAfter": true
+		},
+		{
+			"symbol": ")",
+			"forceBreakBefore": true,
+			"forceBreakAfter": true
+		},
+		{
+			"symbol": "[",
+			"forceBreakBefore": true,
+			"forceBreakAfter": true
+		},
+		{
+			"symbol": "]",
+			"forceBreakBefore": true,
+			"forceBreakAfter": true
+		},
+		{
+			"symbol": "{",
+			"forceBreakBefore": true,
+			"forceBreakAfter": true
+		},
+		{
+			"symbol": "}",
+			"forceBreakBefore": true,
+			"forceBreakAfter": true
+		},
+		{
+			"symbol": ";",
+			"forceBreakBefore": true,
+			"forceBreakAfter": true
+		},
+		{
+			"symbol": ",",
+			"forceBreakBefore": true,
+			"forceBreakAfter": true
+		},
+		{
+			"symbol": "\n",
+			"forceBreakBefore": true,
+			"forceBreakAfter": true
+		}
+	],
+	"operators": [
+		{
+			"type": "bracket-pair",
+			"openBracket": "(",
+			"closeBracket": ")",
+			"precedence": 100,
+			"circumfixMeaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/Identity" },
+			"postfixMeaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/ApplyFunction" }
+		},
+		{
+			"type": "bracket-pair",
+			"openBracket": "[",
+			"closeBracket": "]",
+			"precedence": 100
+		},
+		
+		{
+		   "type": "prefix",
+		   "symbol": "!",
+			"precedence": 90,
+			"meaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/BooleanNegate" }
+		},
+		
+		{
+		   "type": "infix",
+		   "symbol": "**",
+			"precedence": 80,
+			"associativity": "left",
+			"homogeneousOperands": false,
+			"meaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/Exponentiate" }
+		},
+		{
+		   "type": "infix",
+		   "symbol": "*",
+			"precedence": 60,
+			"associativity": "left",
+			"homogeneousOperands": true,
+			"meaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/Multiply" }
+		},
+		{
+			"type": "infix",
+			"symbol": "/",
+			"precedence": 60,
+			"associativity": "left",
+			"homogeneousOperands": false,
+			"meaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/Divide" }
+		},
+		{
+			"type": "infix",
+			"symbol": "+",
+			"precedence": 40,
+			"associativity": "left",
+			"homogeneousOperands": true,
+			"meaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/Add" }
+		},
+		{
+			"type": "infix",
+			"symbol": "-",
+			"precedence": 40,
+			"associativity": "left",
+			"homogeneousOperands": false,
+			"meaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/Subtract" }
+		},
+		{
+			"type": "infix",
+			"symbol": "++",
+			"precedence": 30,
+			"associativity": "right",
+			"homogeneousOperands": true,
+			"meaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/Concatenate" }
+		},
+		{
+			"type": "infix",
+			"symbol": ">=",
+			"precedence": 22,
+			"associativity": "right",
+			"homogeneousOperands": false,
+			"meaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/IsGreaterThanOrEqualTo" }
+		},
+		{
+			"type": "infix",
+			"symbol": "<=",
+			"precedence": 22,
+			"associativity": "right",
+			"homogeneousOperands": false,
+			"meaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/IsLesserThanOrEqualTo" }
+		},
+		{
+			"type": "infix",
+			"symbol": ">",
+			"precedence": 22,
+			"associativity": "right",
+			"homogeneousOperands": false,
+			"meaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/IsGreaterThan" }
+		},
+		{
+			"type": "infix",
+			"symbol": "<",
+			"precedence": 22,
+			"associativity": "right",
+			"homogeneousOperands": false,
+			"meaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/IsLesserThan" }
+		},
+		{
+			"type": "infix",
+			"symbol": "!=",
+			"precedence": 21,
+			"associativity": "right",
+			"homogeneousOperands": false,
+			"meaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/AreNotEqual" }
+		},
+		{
+			"type": "infix",
+			"symbol": "=",
+			"precedence": 21,
+			"associativity": "right",
+			"homogeneousOperands": false,
+			"meaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/AreEqual" }
+		},
+		{
+			"type": "infix",
+			"symbol": "and",
+			"precedence": 20,
+			"associativity": "left",
+			"homogeneousOperands": true,
+			"meaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/And" }
+		},
+		{
+			"type": "infix",
+			"symbol": "or",
+			"precedence": 20,
+			"associativity": "left",
+			"homogeneousOperands": true,
+			"meaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/Or" }
+		},
+		{
+			"type": "infix",
+			"symbol": ">>=",
+			"precedence": 15,
+			"meaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/Bind" },
+			"associativity": "right"
+		},
+		{
+			"type": "infix",
+			"symbol": ">>",
+			"precedence": 15,
+			"meaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/BindIgnoringResult" },
+			"associativity": "right"
+		},
+		{
+			"type": "infix",
+			"symbol": "@",
+			"precedence": 14,
+			"associativity": "right",
+			"meaning": "named-argument"
+		},
+		{
+			"type": "infix",
+			"symbol": "$",
+			"precedence": 13,
+			"associativity": "left",
+			"meaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/ApplyFunction" }
+		},
+		{
+			"type": "infix",
+			"symbol": ":",
+			"precedence": 11,
+			"associativity": "right",
+			"meaning": "supply-metadata" 
+		},
+		
+		{
+			"type": "bracket-pair",
+			"openBracket": "{",
+			"closeBracket": "}",
+			"precedence": 7
+		},
+		
+		{
+			"type": "infix",
+			"symbol": ",",
+			"precedence": 6,
+			"associativity": "right",
+			"meaning": "argument-delimiter"
+		},
+		
+		{
+			"type": "infix",
+			"symbol": ";",
+			"precedence": 5,
+			"associativity": "right",
+			"ignorableAsPrefix": true,
+			"ignorableAsPostfix": true,
+			"meaning": "ignore"
+		},
+		{
+			"type": "infix",
+			"symbol": "\n",
+			"precedence": 4,
+			"associativity": "right",
+			"ignorableAsPrefix": true,
+			"ignorableAsPostfix": true,
+			"meaning": "statement-delimiter"
+		}
+	]
+}
