@@ -1,0 +1,20 @@
+{
+	"type": "operation",
+	"operatorSymbol": "(",
+	"operands": {
+		"inner": {
+			"type": "operation",
+			"operatorSymbol": ",",
+			"operands": {
+				"left": {
+					"type": "phrase",
+					"words": ["foo"]
+				},
+				"right": {
+					"type": "phrase",
+					"words": ["bar"]
+				}
+			}
+		}
+	}
+}
