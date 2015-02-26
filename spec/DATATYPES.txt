@@ -1,0 +1,59 @@
+## Type classes
+
+Type classes indicate how data values can be used, but not what they mean.
+
+E.g. a URL and the contents of a file might both be represented by a
+List[Byte], but have very different meanings.  Roles are used to
+distinguish those.  This is kind of analogous to how in some
+languages, a float and an int might both be representable using the
+same 32-bit value, but you can cast to one or the other and that can
+determine which overloaded function is called.
+
+The way in which a type class implments a role is also indicated
+separately from either.  E.g. if we want to treat a PHP array as a
+function, we can either treat it as a [object,method name] callback,
+or as a function of its keys to its values.
+
+In the following, '<' means 'can be used as'.
+
+All values are 'resources'.  A resource may be identified by its
+value, by a URN, and/or by the expression that resolves to it.  Which
+representation is used internally is up to the compiler.
+
+Function1[ArgumentType,ReturnValueType]
+
+Collection[KeyType,ValueType] < Function1[KeyType,ValueType]
+- An ordered list of key=>values
+- Entries can be iterated over or queried by key
+- Can be queried for number of entries
+- map( Function1[V1,V2], Collection[K,V1] ) -> Collection[K,V2]
+
+List[ValueType] < Collection[Integer,ValueType]
+- Can be sliced
+
+List[Byte]
+- A sequence of bytes
+
+Array[ValueType,numberOfDimensions]
+- N-dimensional positionally-keyed collection of ValueType.
+- Array[ValueType,4](Integer,Integer,Integer,Integer) -> ValueType
+
+Array[ValueType,1] < Collection[Integer,ValueType]
+
+Float < Number
+Float64 < Float
+Float32 < Float
+Rational < Number
+Integer < Rational
+Int32 < Integer
+UInt8 < Integer
+
+2D Image
+- width
+- height
+- slice( 2D Image, x0, y0, x1, y1 ) -> 2D Image
+- scale( 2D Image, xFactor, yFactor ) -> 2D Image
+- get HDR data ( Image, channel name ) -> Array[Number, 2]
+- get LDR data ( Image, channel name ) -> Array[UInt8, 2]
+- construct image from HDR data ( Collection[channel name, Array[Number,2]] ) -> 2D Image
+- construct image from LDR data ( Collection[channel name, Array[Number,2]] ) -> 2D Image (numbers are clamped between 0-255)
