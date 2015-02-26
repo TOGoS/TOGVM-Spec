@@ -63,23 +63,23 @@
 		},
 		
 		{
-		   "type": "prefix",
-		   "symbol": "!",
+			"type": "prefix",
+			"symbol": "!",
 			"precedence": 90,
 			"meaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/BooleanNegate" }
 		},
 		
 		{
-		   "type": "infix",
-		   "symbol": "**",
+			"type": "infix",
+			"symbol": "**",
 			"precedence": 80,
 			"associativity": "left",
 			"homogeneousOperands": false,
 			"meaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/Exponentiate" }
 		},
 		{
-		   "type": "infix",
-		   "symbol": "*",
+			"type": "infix",
+			"symbol": "*",
 			"precedence": 60,
 			"associativity": "left",
 			"homogeneousOperands": true,
