@@ -1,0 +1,154 @@
+#!/usr/bin/php
+<?php
+
+class TOGoS_TOGES_ExpressionGenerator
+{
+	protected $credit;
+	protected $language;
+	protected $operators;
+	protected $operatorsBySymbol = [];
+	public $withoutParens;
+	public $withParens;
+	
+	public function __construct( $language ) {
+		$this->language = $language;
+		$this->operators = array_values($language['operators']);
+		foreach( $this->operators as $op ) {
+			foreach( ['symbol','openBracket','closeBracket'] as $nn ) {
+				if( isset($op[$nn]) ) {
+					$this->operatorsBySymbol[$op[$nn]] = $op;
+				}
+			}
+		}
+		$this->reset();
+	}
+	
+	protected function operatorExists($symbol) {
+		return isset($this->operatorsBySymbol[$symbol]);
+	}
+	
+	public function reset() {
+		$this->credit = 10;
+		$this->withoutParens = '';
+		$this->withParens = '';
+	}
+	
+	protected function pickOperator( $minPrecedence ) {
+		$availableOperators = array_values(array_filter(
+			$this->operators,
+			function($op) use ($minPrecedence) {
+				return $op['precedence'] >= $minPrecedence && ($op['type'] != 'bracket-pair' || $op['openBracket'] != '(');
+			}));
+		if( count($availableOperators) == 0 ) return null;
+		return $availableOperators[mt_rand(0,count($availableOperators)-1)];
+	}
+	
+	protected function _randomWord() {
+		$word = '';
+		for( $i=0; $i<mt_rand(1,10); ++$i ) {
+			$word .= chr(mt_rand(97,122));
+		}
+		return $word;
+	}
+	
+	protected function randomWord($allowFunkiness=false) {
+		while( true ) {
+			$word = $this->_randomWord();
+			if( $allowFunkiness or !$this->operatorExists($word) ) {
+				return $word;
+			}
+		}
+	}
+	
+	protected function randomWords( $allowFunkiness=false ) {
+		$words = [];
+		for( $i=0; $i<mt_rand(1,5); ++$i ) {
+			$words[] = $this->randomWord($allowFunkiness);
+		}
+		return $words;
+	}
+	
+	protected function openGroup() {
+		$this->withParens .= "(";
+	}
+	protected function closeGroup() {
+		$this->withParens .= ")";
+	}
+
+	protected function emitSource($s) {
+		$this->withoutParens .= $s;
+		$this->withParens .= $s;
+	}
+	
+	public function generate( $minPrecedence=0 ) {
+		if( $this->credit <= 0 or mt_rand(0,99) < 40 or ($operator = $operator = $this->pickOperator($minPrecedence)) === null) {
+			// Leaf node!
+			$this->openGroup();
+			if( mt_rand(0,99) < 50 ) {
+				$this->emitSource(implode(' ',$this->randomWords()));
+			} else {
+				$this->emitSource('"'.implode(' ',$this->randomWords(true)).'"');
+			}
+			$this->closeGroup();
+			--$this->credit;
+		} else {
+			if( $operator['type'] == 'bracket-pair' ) {
+				$this->openGroup();
+				$this->emitSource( $operator['openBracket'] );
+				$this->generate($operator['precedence']);
+				$this->emitSource( $operator['closeBracket'] );
+				$this->closeGroup();
+			} else if( $operator['type'] == 'infix' ) {
+				if( $operator['associativity'] == 'left' ) {
+					$leftPrec = $operator['precedence'];
+					$rightPrec = $operator['precedence'] + 1;
+				} else {
+					$leftPrec = $operator['precedence'] + 1;
+					$rightPrec = $operator['precedence'];
+				}
+				$this->openGroup();
+				$this->generate($leftPrec);
+				$this->emitSource(" {$operator['symbol']} ");
+				$this->generate($rightPrec);
+				$this->closeGroup();
+			} else if( $operator['type'] == 'prefix' ) {
+				$this->openGroup();
+				$this->emitSource("{$operator['symbol']} ");
+				$this->generate($operator['precedence']+1);
+				$this->closeGroup();
+			} else if( $operator['type'] == 'postfix' ) {
+				$this->openGroup();
+				$this->generate($operator['precedence']+1);
+				$this->emitSource(" {$operator['symbol']}");
+				$this->closeGroup();
+			} else {
+				throw new Exception("Unrecognized operator type '{$operator['type']}'");
+			}
+		}
+	}
+}
+
+$noParenStream = @fopen("php://fd/4","w");
+if( $noParenStream === false ) {
+	fwrite(STDERR, "Failed to open file desriptor 4 for writing.\n");
+	exit(1);
+}
+$parenStream = @fopen("php://fd/5","w");
+if( $parenStream === false ) {
+	fwrite(STDERR, "Failed to open file desriptor 5 for writing.\n");
+	exit(1);
+}
+
+$languageFile = 'test-vectors/test-language.json';
+$language = json_decode(file_get_contents($languageFile), true);
+if( $language === null ) {
+	fwrite(STDERR, "Failed to parse JSON from '$languageFile'\n");
+	exit(1);
+}
+$EG = new TOGoS_TOGES_ExpressionGenerator($language);
+for( $i=0; $i<100; ++$i ) {
+	$EG->reset();
+	$EG->generate();
+	fwrite($noParenStream, $EG->withoutParens."\n");
+	fwrite($parenStream, $EG->withParens."\n");
+}
