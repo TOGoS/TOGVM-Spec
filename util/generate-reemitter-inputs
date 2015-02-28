@@ -37,7 +37,10 @@ class TOGoS_TOGES_ExpressionGenerator
 		$availableOperators = array_values(array_filter(
 			$this->operators,
 			function($op) use ($minPrecedence) {
-				return $op['precedence'] >= $minPrecedence && ($op['type'] != 'bracket-pair' || $op['openBracket'] != '(');
+				return
+					$op['precedence'] >= $minPrecedence &&
+					($op['type'] != 'bracket-pair' || $op['openBracket'] != '(') &&
+					($op['type'] != 'infix' || $op['symbol'] != "\n");
 			}));
 		if( count($availableOperators) == 0 ) return null;
 		return $availableOperators[mt_rand(0,count($availableOperators)-1)];
