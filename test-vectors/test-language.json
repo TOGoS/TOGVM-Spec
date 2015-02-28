@@ -213,8 +213,8 @@
 			"symbol": ";",
 			"precedence": 5,
 			"associativity": "right",
-			"prefixMeaning": "ignore",
-			"postfixMeaning": "ignore",
+			"prefixMeaning": "statement-delimiter",
+			"postfixMeaning": "statement-delimiter",
 			"infixMeaning": "statement-delimiter"
 		},
 		{
