@@ -64,7 +64,7 @@
 			"type": "prefix",
 			"symbol": "!",
 			"precedence": 90,
-			"infixMeaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/BooleanNegate" }
+			"prefixMeaning": { "functionUri": "http://ns.nuke24.net/TOGVM/Functions/BooleanNegate" }
 		},
 		
 		{

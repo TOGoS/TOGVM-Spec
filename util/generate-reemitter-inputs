@@ -39,14 +39,16 @@ class TOGoS_TOGES_ExpressionGenerator
 			function($op) use ($minPrecedence) {
 				return
 					$op['precedence'] >= $minPrecedence &&
-					($op['type'] != 'bracket-pair' || $op['openBracket'] != '(') &&
-					($op['type'] != 'infix' || $op['symbol'] != "\n");
+					(empty($op['openBracket']) || $op['openBracket'] != '(') &&
+					(empty($op['symbol']) || $op['symbol'] != "\n");
 			}));
 		if( count($availableOperators) == 0 ) return null;
 		return $availableOperators[mt_rand(0,count($availableOperators)-1)];
 	}
 	
+	/*
 	protected function _randomWord() {
+		return 'foo';
 		$word = '';
 		for( $i=0; $i<mt_rand(1,10); ++$i ) {
 			$word .= chr(mt_rand(97,122));
@@ -62,11 +64,14 @@ class TOGoS_TOGES_ExpressionGenerator
 			}
 		}
 	}
+	*/
+	
+	static $words = ['foo','123','%%%','quux'];
 	
 	protected function randomWords( $allowFunkiness=false ) {
 		$words = [];
-		for( $i=0; $i<mt_rand(1,5); ++$i ) {
-			$words[] = $this->randomWord($allowFunkiness);
+		for( $i=0; $i<mt_rand(1,4); ++$i ) {
+			$words[] = self::$words[$i];
 		}
 		return $words;
 	}
@@ -83,6 +88,10 @@ class TOGoS_TOGES_ExpressionGenerator
 		$this->withParens .= $s;
 	}
 	
+	protected static function opIsFix(array $operator, $fixity) {
+		return isset($operator["{$fixity}Meaning"]) && $operator["{$fixity}Meaning"] != 'error';
+	}
+	
 	public function generate( $minPrecedence=0 ) {
 		if( $this->credit <= 0 or mt_rand(0,99) < 40 or ($operator = $operator = $this->pickOperator($minPrecedence)) === null) {
 			// Leaf node!
@@ -95,13 +104,13 @@ class TOGoS_TOGES_ExpressionGenerator
 			$this->closeGroup();
 			--$this->credit;
 		} else {
-			if( $operator['type'] == 'bracket-pair' ) {
+			if( isset($operator['openBracket']) ) {
 				$this->openGroup();
 				$this->emitSource( $operator['openBracket'] );
-				$this->generate($operator['precedence']);
+				$this->generate();
 				$this->emitSource( $operator['closeBracket'] );
 				$this->closeGroup();
-			} else if( $operator['type'] == 'infix' ) {
+			} else if( self::opIsFix($operator,'infix') ) {
 				if( $operator['associativity'] == 'left' ) {
 					$leftPrec = $operator['precedence'];
 					$rightPrec = $operator['precedence'] + 1;
@@ -114,18 +123,18 @@ class TOGoS_TOGES_ExpressionGenerator
 				$this->emitSource(" {$operator['symbol']} ");
 				$this->generate($rightPrec);
 				$this->closeGroup();
-			} else if( $operator['type'] == 'prefix' ) {
+			} else if( self::opIsFix($operator,'prefix') ) {
 				$this->openGroup();
 				$this->emitSource("{$operator['symbol']} ");
-				$this->generate($operator['precedence']+1);
+				$this->generate($operator['precedence']);
 				$this->closeGroup();
-			} else if( $operator['type'] == 'postfix' ) {
+			} else if( self::opIsFix($operator,'postfix') ) {
 				$this->openGroup();
 				$this->generate($operator['precedence']+1);
 				$this->emitSource(" {$operator['symbol']}");
 				$this->closeGroup();
 			} else {
-				throw new Exception("Unrecognized operator type '{$operator['type']}'");
+				throw new Exception("Unrecognized operator type: ".json_encode($operator));
 			}
 		}
 	}
@@ -149,9 +158,15 @@ if( $language === null ) {
 	exit(1);
 }
 $EG = new TOGoS_TOGES_ExpressionGenerator($language);
-for( $i=0; $i<100; ++$i ) {
+$wow = [];
+for( $i=0; $i<1000; ++$i ) {
 	$EG->reset();
 	$EG->generate();
-	fwrite($noParenStream, $EG->withoutParens."\n");
-	fwrite($parenStream, $EG->withParens."\n");
+	$wow[$EG->withoutParens] = $EG->withParens;
+}
+
+uksort($wow, function($a,$b) { return strlen($a) < strlen($b) ? -1 : (strlen($a) > strlen($b) ? 1 : 0); });
+foreach( $wow as $withoutParens=>$withParens ) {
+	fwrite($noParenStream, $withoutParens."\n");
+	fwrite($parenStream, $withParens."\n");
 }
