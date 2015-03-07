@@ -1,4 +1,4 @@
 {
-    "classUri": "http://ns.nuke24.net/TOGVM/Expressions/LiteralString",
+    "classRef": "http://ns.nuke24.net/TOGVM/Expressions/LiteralString",
     "literalValue": "Hello, world!\n"
 }

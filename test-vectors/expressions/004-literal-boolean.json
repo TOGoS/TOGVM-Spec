@@ -1,4 +1,4 @@
 {
-    "classUri": "http://ns.nuke24.net/TOGVM/Expressions/LiteralBoolean",
+    "classRef": "http://ns.nuke24.net/TOGVM/Expressions/LiteralBoolean",
     "literalValue": false
 }

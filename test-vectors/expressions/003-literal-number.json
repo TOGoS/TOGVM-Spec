@@ -1,4 +1,4 @@
 {
-    "classUri": "http://ns.nuke24.net/TOGVM/Expressions/LiteralNumber",
+    "classRef": "http://ns.nuke24.net/TOGVM/Expressions/LiteralNumber",
     "literalValue": -32.125
 }

@@ -1,4 +1,4 @@
 {
-    "classUri": "http://ns.nuke24.net/TOGVM/Expressions/LiteralInteger",
+    "classRef": "http://ns.nuke24.net/TOGVM/Expressions/LiteralInteger",
     "literalValue": 409
 }

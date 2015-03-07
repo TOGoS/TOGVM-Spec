@@ -1,9 +1,9 @@
 {
-    "classUri": "http://ns.nuke24.net/TOGVM/Expressions/FunctionApplication",
-    "functionUri": "http://ns.nuke24.net/TOGVM/Functions/ResolveHashURN",
+    "classRef": "http://ns.nuke24.net/TOGVM/Expressions/FunctionApplication",
+    "functionRef": "http://ns.nuke24.net/TOGVM/Functions/ResolveHashURN",
     "arguments": [
 	{
-	    "classUri": "http://ns.nuke24.net/TOGVM/Expressions/LiteralString",
+	    "classRef": "http://ns.nuke24.net/TOGVM/Expressions/LiteralString",
 	    "literalValue": "urn:bitprint:SQ5HALIG6NCZTLXB7DNI56PXFFQDDVUZ.276TET7NAXG7FVCDQWOENOX4VABJSZ4GBV7QATQ"
 	}
     ]
