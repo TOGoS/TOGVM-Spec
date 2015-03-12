@@ -1,3 +1,5 @@
+Thoughts about function implementation.
+
 Can Monads be translated to CPS?
 
   function printHelloWorld( emitter ) {

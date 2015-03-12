@@ -2,7 +2,6 @@ Lowest-common-denominator representation of programs is as JSON structures.
 
 Expression types:   LiteralString
   
-
 Core concepts:
 
   Functions
@@ -191,7 +190,45 @@ Thoughts...
   We will have to handle the bc case at some point.  I guess this would happen by abc.step() constructing a new CompoundAction.
   
   function CA#step( ca ) {
+
+Alternatively...    
+
+  Actions may be thought of as zero-argument impure functions.
+  As far as I can figure, this doesn't help us conceptually
+  aside from putting actions and functions into a unified taxonomy.
+  
+  Functions that 'do stuff' can't be automatically converted to
+  functions that return an action that does the stuff because it
+  would be ambiguous whethter the caller wanted the action or if
+  it expected the stuff to already be done when the function returns.
+  
+  So whether you want something done or you want an action that will
+  do it is something the programmer must decide when designing an API.
+
+  Calls to impure functions may be converted to calls to pure
+  functions that return an action followed by executing that action.
+  
+  You could specify that all actions are actually impure functions
+  (which is a realistic way to think of them as they are actually
+  implemented).  If you want an action instead of its result you could
+  use some syntax to indicate that, like {...}.
+  
+    say("Hi") # actually outputs 'Hi' when evaluated
+    { say("Hi") } # returns the say "Hi" action.
+  
+  Or you could transform the function itself.
+  I am liking this approach because it makes it easy to program
+  in either an imperative or a Haskelly way, and makes it easy
+  to define actions (as impure functions) in imperative languages.
     
+    say # An impure function that prints a line
+    &say # A pure function that returns an action that prints a line
+
+  And by extension...
+   
+    &&say # A pure function that returns a pure function that returns an action that prints a line
+ 
+  This won't work with curried functions; & operates on the whe whole function.
 
 ## Errors
 
@@ -223,8 +260,8 @@ though.  Let's say we do something like...
    b = someFunctionThatMayFail(456);
    if( a > 3, a, b )
 
-Then as long as a is valid and > 3, 
-
+Then as long as a is valid and > 3, we should get a result, even if
+evaluating b would throw an error.
 
 Then there's action failures...
 
