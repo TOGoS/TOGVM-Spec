@@ -68,5 +68,26 @@
 		"notes": [
 			"Also acts as [multidimensional] array indexing operator!"
 		]
+	},
+	"http://ns.nuke24.net/TOGVM/Expressions/ArrayConstruction": {
+		"properties": {
+			"valueExpressions": {
+				"notes": [
+					"An array of expressions which will each evaluate to the corresponding array element value."
+				]
+			}
+		}
+	},
+	"http://ns.nuke24.net/TOGVM/Expressions/Splat": {
+		"properties": {
+			"splattedValueExpression": {
+				"notes": [ "The expression whose value is to be interpolated" ]
+			}
+		},
+		"notes": [
+			"Only makes sense as an expression in a list constructor.",
+			"Indicates that each element of the returned list should be its own entry in the resulting list.",
+			"May also apply to other collection types, such as maps or sets."
+		]
 	}
 }
