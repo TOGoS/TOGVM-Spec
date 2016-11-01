@@ -1,0 +1,72 @@
+{
+	"http://ns.nuke24.net/TOGVM/Expressions/LiteralString": {
+		"properties": {
+			"literalValue": {}
+		}
+	},
+	"http://ns.nuke24.net/TOGVM/Expressions/LiteralInteger": {
+		"properties": {
+			"literalValue": {}
+		}
+	},
+	"http://ns.nuke24.net/TOGVM/Expressions/LiteralNumber": {
+		"properties": {
+			"literalValue": {}
+		}
+	},
+	"http://ns.nuke24.net/TOGVM/Expressions/LiteralBoolean": {
+		"properties": {
+			"literalValue": {}
+		}
+	},
+	"http://ns.nuke24.net/TOGVM/Expressions/Variable": {
+		"properties": {
+			"variableName": {
+				"notes": ["Some string identifying the variable"]
+			}
+		},
+		"notes": [
+			"Evaluates to the value of a variable.",
+			"Resolution semantics depend on the variable's scope."
+		]
+	},
+	"http://ns.nuke24.net/TOGVM/Expressions/Let": {
+		"properties": {
+			"variableValueExpressions": {
+				"notes": [
+					"A map of variable name => initialization expression"
+				]
+			},
+			"body": {
+				"notes": [
+					"An expression to evaluate in the context of the new variables."
+				]
+			}
+		},
+		"notes": [
+			"Binds values to variables and then evaluates body.",
+			"Each variable value expression is evaluated exactly once."
+		]
+	},
+	"http://ns.nuke24.net/TOGVM/Expressions/FunctionApplication": {
+		"properties": {
+			"functionExpression": {
+				"notes": ["An expression returning the function!"]
+			},
+			"functionRef": {
+				"notes": [
+					"Identifies a function by URI/long name, usually for an intrinsic functions.",
+					"Can be used in place of functionExpression"
+				]
+			}
+			"arguments": {
+				"notes": [
+					"A list of argument expressions which will each evaluate to the corresponding argument value."
+				]
+			}
+		},
+		"notes": [
+			"Also acts as [multidimensional] array indexing operator!"
+		]
+	}
+}

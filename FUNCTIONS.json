@@ -1,0 +1,18 @@
+{
+	"http://ns.nuke24.net/TOGVM/Functions/BooleanNegate": {},
+	"http://ns.nuke24.net/TOGVM/Functions/Exponentiate": {},
+	"http://ns.nuke24.net/TOGVM/Functions/Multiply": {},
+	"http://ns.nuke24.net/TOGVM/Functions/Divide": {},
+	"http://ns.nuke24.net/TOGVM/Functions/Add": {},
+	"http://ns.nuke24.net/TOGVM/Functions/Subtract": {},
+	"http://ns.nuke24.net/TOGVM/Functions/Concatenate": {},
+	"http://ns.nuke24.net/TOGVM/Functions/IsGreaterThanOrEqualTo": {},
+	"http://ns.nuke24.net/TOGVM/Functions/IsLesserThanOrEqualTo": {},
+	"http://ns.nuke24.net/TOGVM/Functions/IsGreaterThan": {},
+	"http://ns.nuke24.net/TOGVM/Functions/IsLesserThan": {},
+	"http://ns.nuke24.net/TOGVM/Functions/AreNotEqual": {},
+	"http://ns.nuke24.net/TOGVM/Functions/AreEqual": {},
+	"http://ns.nuke24.net/TOGVM/Functions/IsNull": {},
+	"http://ns.nuke24.net/TOGVM/Functions/And": {},
+	"http://ns.nuke24.net/TOGVM/Functions/Or": {}
+}
