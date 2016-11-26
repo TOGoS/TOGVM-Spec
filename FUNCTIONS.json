@@ -21,5 +21,11 @@
 	"http://ns.nuke24.net/TOGVM/Functions/AreEqual": {},
 	"http://ns.nuke24.net/TOGVM/Functions/IsNull": {},
 	"http://ns.nuke24.net/TOGVM/Functions/And": {},
-	"http://ns.nuke24.net/TOGVM/Functions/Or": {}
+	"http://ns.nuke24.net/TOGVM/Functions/Or": {},
+	"http://ns.nuke24.net/TOGVM/Functions/Coalesce": {
+		"notes": [
+			"Returns the value of the first non-null argument.",
+			"Should be lazy."
+		]
+	}
 }
