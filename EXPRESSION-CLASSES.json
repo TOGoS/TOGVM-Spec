@@ -89,5 +89,12 @@
 			"Indicates that each element of the returned list should be its own entry in the resulting list.",
 			"May also apply to other collection types, such as maps or sets."
 		]
+	},
+	"http://ns.nuke24.net/TOGVM/Expressions/IfElseChain": {
+		"properties": {
+			"arguments": {
+				"notes": ["A list of alternating condition/result expressions, followed by a final 'otherwise' result expression"]
+			}
+		}
 	}
 }
