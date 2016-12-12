@@ -78,6 +78,16 @@
 			}
 		}
 	},
+	"http://ns.nuke24.net/TOGVM/Expressions/AssociativeArrayConstruction": {
+		"properties": {
+			"pairExpressions": {
+				"notes": [
+					"An array of alternating key/value expressions and/or Splat expressions.",
+					"It does not make sense to use a splat expression following a key."
+				]
+			}
+		}
+	},
 	"http://ns.nuke24.net/TOGVM/Expressions/Splat": {
 		"properties": {
 			"splattedValueExpression": {
