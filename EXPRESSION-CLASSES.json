@@ -58,7 +58,7 @@
 					"Identifies a function by URI/long name, usually for an intrinsic functions.",
 					"Can be used in place of functionExpression"
 				]
-			}
+			},
 			"arguments": {
 				"notes": [
 					"A list of argument expressions which will each evaluate to the corresponding argument value."
