@@ -1,23 +1,23 @@
 {
-    "classRef": "http://ns.nuke24.net/TOGVM/Expressions/FunctionApplication",
+    "classRef": "http://ns.nuke24.net/TOGVM/Expression/FunctionApplication",
     "functionRef": "http://ns.nuke24.net/TOGVM/Functions/Subtract",
     "arguments": [
 	{
-	    "classRef": "http://ns.nuke24.net/TOGVM/Expressions/FunctionApplication",
+	    "classRef": "http://ns.nuke24.net/TOGVM/Expression/FunctionApplication",
 	    "functionRef": "http://ns.nuke24.net/TOGVM/Functions/Subtract",
 	    "arguments": [
 		{
-		    "classRef": "http://ns.nuke24.net/TOGVM/Expressions/LiteralInteger",
+		    "classRef": "http://ns.nuke24.net/TOGVM/Expression/LiteralInteger",
 		    "literalValue": 23
 		},
 		{
-		    "classRef": "http://ns.nuke24.net/TOGVM/Expressions/LiteralInteger",
+		    "classRef": "http://ns.nuke24.net/TOGVM/Expression/LiteralInteger",
 		    "literalValue": 24
 		}
 	    ]
 	},
 	{
-	    "classRef": "http://ns.nuke24.net/TOGVM/Expressions/LiteralInteger",
+	    "classRef": "http://ns.nuke24.net/TOGVM/Expression/LiteralInteger",
 	    "literalValue": 25
 	}
     ]

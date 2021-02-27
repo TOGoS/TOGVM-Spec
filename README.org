@@ -23,6 +23,11 @@ This project consists of
 [[./EXPRESSION-CLASSES.json][a JSON file describing expression classes]],
 and [[./test-vectors/][some test vectors]] (mostly about parsing based on the meta-language).
 
+** History
+
+- 1.0.0 :: Move entire expression namespace from ~Expressions~ (plural) to ~Expression~ (singular)
+  since they define expression classes, not expressions,
+  and plural/singular has been my traditional way of hinting that in a name.
 
 ** Immutable, hash-identified functions
 

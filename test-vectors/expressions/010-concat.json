@@ -1,25 +1,25 @@
 {
-    "classRef": "http://ns.nuke24.net/TOGVM/Expressions/FunctionApplication",
+    "classRef": "http://ns.nuke24.net/TOGVM/Expression/FunctionApplication",
     "functionRef": "http://ns.nuke24.net/TOGVM/Functions/Concatenate",
     "arguments": [
 	{
-	    "classRef": "http://ns.nuke24.net/TOGVM/Expressions/LiteralString",
+	    "classRef": "http://ns.nuke24.net/TOGVM/Expression/LiteralString",
 	    "literalValue": "Hello"
 	},
 	{
-	    "classRef": "http://ns.nuke24.net/TOGVM/Expressions/LiteralString",
+	    "classRef": "http://ns.nuke24.net/TOGVM/Expression/LiteralString",
 	    "literalValue": ", "
 	},
 	{
-	    "classRef": "http://ns.nuke24.net/TOGVM/Expressions/LiteralString",
+	    "classRef": "http://ns.nuke24.net/TOGVM/Expression/LiteralString",
 	    "literalValue": "world"
 	},
 	{
-	    "classRef": "http://ns.nuke24.net/TOGVM/Expressions/LiteralString",
+	    "classRef": "http://ns.nuke24.net/TOGVM/Expression/LiteralString",
 	    "literalValue": "!"
 	},
 	{
-	    "classRef": "http://ns.nuke24.net/TOGVM/Expressions/LiteralString",
+	    "classRef": "http://ns.nuke24.net/TOGVM/Expression/LiteralString",
 	    "literalValue": "\n"
 	}
     ]

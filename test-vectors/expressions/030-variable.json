@@ -1,13 +1,13 @@
 {
-    "classRef": "http://ns.nuke24.net/TOGVM/Expressions/FunctionApplication",
+    "classRef": "http://ns.nuke24.net/TOGVM/Expression/FunctionApplication",
     "functionRef": "http://ns.nuke24.net/TOGVM/Functions/Add",
     "arguments": [
 	{
-	    "classRef": "http://ns.nuke24.net/TOGVM/Expressions/LiteralInteger",
+	    "classRef": "http://ns.nuke24.net/TOGVM/Expression/LiteralInteger",
 	    "literalValue": 42
 	},
 	{
-	    "classRef": "http://ns.nuke24.net/TOGVM/Expressions/Variable",
+	    "classRef": "http://ns.nuke24.net/TOGVM/Expression/Variable",
 	    "variableName": "some variable"
 	}
     ]

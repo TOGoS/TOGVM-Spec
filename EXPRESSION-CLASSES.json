@@ -1,25 +1,25 @@
 {
-	"http://ns.nuke24.net/TOGVM/Expressions/LiteralString": {
+	"http://ns.nuke24.net/TOGVM/Expression/LiteralString": {
 		"properties": {
 			"literalValue": {}
 		}
 	},
-	"http://ns.nuke24.net/TOGVM/Expressions/LiteralInteger": {
+	"http://ns.nuke24.net/TOGVM/Expression/LiteralInteger": {
 		"properties": {
 			"literalValue": {}
 		}
 	},
-	"http://ns.nuke24.net/TOGVM/Expressions/LiteralNumber": {
+	"http://ns.nuke24.net/TOGVM/Expression/LiteralNumber": {
 		"properties": {
 			"literalValue": {}
 		}
 	},
-	"http://ns.nuke24.net/TOGVM/Expressions/LiteralBoolean": {
+	"http://ns.nuke24.net/TOGVM/Expression/LiteralBoolean": {
 		"properties": {
 			"literalValue": {}
 		}
 	},
-	"http://ns.nuke24.net/TOGVM/Expressions/Variable": {
+	"http://ns.nuke24.net/TOGVM/Expression/Variable": {
 		"properties": {
 			"variableName": {
 				"notes": ["Some string identifying the variable"]
@@ -30,7 +30,7 @@
 			"Resolution semantics depend on the variable's scope."
 		]
 	},
-	"http://ns.nuke24.net/TOGVM/Expressions/Let": {
+	"http://ns.nuke24.net/TOGVM/Expression/Let": {
 		"properties": {
 			"variableValueExpressions": {
 				"notes": [
@@ -48,7 +48,7 @@
 			"Each variable value expression is evaluated exactly once."
 		]
 	},
-	"http://ns.nuke24.net/TOGVM/Expressions/FunctionApplication": {
+	"http://ns.nuke24.net/TOGVM/Expression/FunctionApplication": {
 		"properties": {
 			"functionExpression": {
 				"notes": ["An expression returning the function!"]
@@ -70,7 +70,7 @@
 			"Also acts as [multidimensional] array indexing operator!"
 		]
 	},
-	"http://ns.nuke24.net/TOGVM/Expressions/ArrayConstruction": {
+	"http://ns.nuke24.net/TOGVM/Expression/ArrayConstruction": {
 		"properties": {
 			"valueExpressions": {
 				"notes": [
@@ -79,7 +79,7 @@
 			}
 		}
 	},
-	"http://ns.nuke24.net/TOGVM/Expressions/AssociativeArrayConstruction": {
+	"http://ns.nuke24.net/TOGVM/Expression/AssociativeArrayConstruction": {
 		"properties": {
 			"pairExpressions": {
 				"notes": [
@@ -89,7 +89,7 @@
 			}
 		}
 	},
-	"http://ns.nuke24.net/TOGVM/Expressions/Splat": {
+	"http://ns.nuke24.net/TOGVM/Expression/Splat": {
 		"properties": {
 			"splattedValueExpression": {
 				"notes": [ "The expression whose value is to be interpolated" ]
@@ -101,7 +101,7 @@
 			"Associatve arrays may be splatted when appropriate."
 		]
 	},
-	"http://ns.nuke24.net/TOGVM/Expressions/NamedArgument": {
+	"http://ns.nuke24.net/TOGVM/Expression/NamedArgument": {
 		"properties": {
 			"name": {
 				 "notes": [ "The argument name" ]
@@ -118,7 +118,7 @@
 			"Either 'name' or 'nameExpression' must be specified."
 		]
 	},
-	"http://ns.nuke24.net/TOGVM/Expressions/IfElseChain": {
+	"http://ns.nuke24.net/TOGVM/Expression/IfElseChain": {
 		"properties": {
 			"arguments": {
 				"notes": ["A list of alternating condition/result expressions, followed by a final 'otherwise' result expression"]
