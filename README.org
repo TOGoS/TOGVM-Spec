@@ -1,0 +1,36 @@
+#+TITLE: TOGVM-Spec
+
+Hello and welcome to TOGVM-Spec!
+
+The project might be somewhat misnamed.
+TOGVM is not a virtual machine
+(though VMs could be, and to varying degrees have been built to evaluate the expressions it defines),
+but a specification for a functional language whose programs can be described by RDF.
+
+Why RDF?  Well, I like the idea of language-agnostic intermediate languages
+with fully qualified names for the building blocks of a program
+so that you can know exactly what one should do without having to ask
+"Which compiler is used?  What options?  What libraries are provided?".
+It also provides a simple escape hatch for adding extensions.
+Invent whatever additional primitives you need for your own implementation.
+Just make sure they're namespaced to avoid confusion.
+
+This project also includes a meta-syntax for languages that compile to the RDF representation.
+This is useful because people don't always want to write RDF+XML or JSON-LD directly.
+
+This project consists of
+[[./FUNCTIONS.json][a JSON file describing 'built-in' functions]],
+[[./EXPRESSION-CLASSES.json][a JSON file describing expression classes]],
+and [[./test-vectors/][some test vectors]] (mostly about parsing based on the meta-language).
+
+
+** Immutable, hash-identified functions
+
+Closely-related to the concept of universal identifiers for intrinsic functioss is
+that of universal identifiers for non-intrinsic functions.
+This can be done easily by serializing the function and then referencing the hash.
+
+This is the exact same idea [[https://www.unisonweb.org/][the Unison language]] ([[https://www.youtube.com/watch?v=gCWtkvDQ2ZI][introduction video]]) is based around
+(I'm not sure who came up with the idea first
+(I've been toying with the idea since about 2010 or possibly earlier),
+but they have a nicer website than I do).
