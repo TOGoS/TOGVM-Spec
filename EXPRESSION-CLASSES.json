@@ -60,7 +60,7 @@
 				"notes": [
 					"Identifies a function by URI/long name, usually for an intrinsic functions.",
 					"Can be used in place of functionExpression.",
-					"In RDF+XML, <function rdf:ref=\"NAME_GOES_HERE\"/>."
+					"In RDF+XML, <function rdf:resource=\"NAME_GOES_HERE\"/>."
 				]
 			},
 			"arguments": {
