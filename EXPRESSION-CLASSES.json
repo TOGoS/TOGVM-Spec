@@ -34,7 +34,10 @@
 		"properties": {
 			"variableValueExpressions": {
 				"notes": [
-					"A map of variable name => initialization expression"
+					"A collection of NamedValues, one per value to be initialized.",
+					"The value expressions are to be evaluated in the outer context,",
+					"which means the variable initialization expressions cannot reference",
+					"other variables being initialized by the same Let."
 				]
 			},
 			"body": {
@@ -62,7 +65,7 @@
 			"arguments": {
 				"notes": [
 					"A list of argument expressions which will each evaluate to the corresponding argument value.",
-					"NamedArgument and Splat expressions have special meaning as function arguments."
+					"NamedValue and Splat expressions have special meaning as function arguments."
 				]
 			}
 		},
@@ -101,10 +104,10 @@
 			"Associatve arrays may be splatted when appropriate."
 		]
 	},
-	"http://ns.nuke24.net/TOGVM/Expression/NamedArgument": {
+	"http://ns.nuke24.net/TOGVM/Expression/NamedValue": {
 		"properties": {
 			"name": {
-				 "notes": [ "The argument name" ]
+				 "notes": [ "The name" ]
 			},
 			"nameExpression": {
 				 "notes": [ "An expression that provides the argument name" ]
@@ -117,6 +120,12 @@
 			"Only valid as a function argument.",
 			"Either 'name' or 'nameExpression' must be specified."
 		]
+	},
+	"http://ns.nuke24.net/TOGVM/Expression/NamedArgument": {
+		 "deprecated": true,
+		 "notes": [
+			  "Old name (1.0.0) for NamedValue"
+		 ],
 	},
 	"http://ns.nuke24.net/TOGVM/Expression/IfElseChain": {
 		"properties": {

@@ -32,12 +32,16 @@ or provide better definitions.
 Major version number changes are breaking changes.
 Names may be changed (e.g. 0.x -> 1.x renamed the entire 'Expression' namespace prefix),
 or new fields added that an implementation must be aware of.
+I may cheat and call conceptually breaking changes bugfix versions (x.x.+1)
+if nobody is actually using the feature yet.
+
 Obviously, for 'single meaning' to be true, even major version increases
 should not change the meaning of existing names!
 
 - 1.0.0 :: Move entire expression namespace from ~Expressions~ (plural) to ~Expression~ (singular)
   since they define expression classes, not expressions,
   and plural/singular has been my traditional way of hinting that in a name.
+- 1.1.0 :: Rename 'NamedArgument'
 
 ** Immutable, hash-identified functions
 
