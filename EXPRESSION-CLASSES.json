@@ -59,7 +59,8 @@
 			"functionRef": {
 				"notes": [
 					"Identifies a function by URI/long name, usually for an intrinsic functions.",
-					"Can be used in place of functionExpression"
+					"Can be used in place of functionExpression.",
+					"In RDF+XML, <function rdf:ref=\"NAME_GOES_HERE\"/>."
 				]
 			},
 			"arguments": {
@@ -107,10 +108,10 @@
 	"http://ns.nuke24.net/TOGVM/Expression/NamedValue": {
 		"properties": {
 			"name": {
-				 "notes": [ "The name" ]
+				 "notes": [ "The name, a string" ]
 			},
 			"nameExpression": {
-				 "notes": [ "An expression that provides the argument name" ]
+				 "notes": [ "An expression that provides the name" ]
 			},
 			"valueExpression": {
 				"notes": [ "An expression that provides the argument value" ]
