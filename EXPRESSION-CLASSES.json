@@ -61,7 +61,8 @@
 			},
 			"arguments": {
 				"notes": [
-					"A list of argument expressions which will each evaluate to the corresponding argument value."
+					"A list of argument expressions which will each evaluate to the corresponding argument value.",
+					"NamedArgument and Splat expressions have special meaning as function arguments."
 				]
 			}
 		},
@@ -95,9 +96,26 @@
 			}
 		},
 		"notes": [
-			"Only makes sense as an expression in a list constructor.",
+			"Only makes sense as an expression in a list constructor or function arguments.",
 			"Indicates that each element of the returned list should be its own entry in the resulting list.",
-			"May also apply to other collection types, such as maps or sets."
+			"Associatve arrays may be splatted when appropriate."
+		]
+	},
+	"http://ns.nuke24.net/TOGVM/Expressions/NamedArgument": {
+		"properties": {
+			"name": {
+				 "notes": [ "The argument name" ]
+			},
+			"nameExpression": {
+				 "notes": [ "An expression that provides the argument name" ]
+			},
+			"valueExpression": {
+				"notes": [ "An expression that provides the argument value" ]
+			}
+		},
+		"notes": [
+			"Only valid as a function argument.",
+			"Either 'name' or 'nameExpression' must be specified."
 		]
 	},
 	"http://ns.nuke24.net/TOGVM/Expressions/IfElseChain": {
