@@ -1,0 +1,18 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 2021-02-27
+  Bugfixes:
+    - 041-concat-with-urns.json was still referencing the old 'Expressions' namespace
+---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 2021-02-27
+  Changes:
+    - Rename 'NamedArgument' to 'NamedValue', since it turns out to be more universal
+      than just function arguments
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2021-02-27
+  Changes:
+    - Move entire expression namespace from ~Expressions~ (plural) to ~Expression~ (singular)
+      since they define expression classes, not expressions,
+      and plural/singular has been my traditional way of hinting that in a name.
