@@ -27,7 +27,8 @@
 		},
 		"notes": [
 			"Evaluates to the value of a variable.",
-			"Resolution semantics depend on the variable's scope."
+			"Resolution semantics depend on the variable's scope.",
+			"For variables with URI-like identifiers, can use that identifier as the variable object's URI (rdf:about in RDF+XMLese).",
 		]
 	},
 	"http://ns.nuke24.net/TOGVM/Expression/Let": {
@@ -56,11 +57,14 @@
 			"functionExpression": {
 				"notes": ["An expression returning the function!"]
 			},
+			"function": {
+				"notes": [
+					"The function.  Probably a reference.  <function rdf:resource=\"...\"/> in RDF+XMLese."
+				],
+			},
 			"functionRef": {
 				"notes": [
-					"Identifies a function by URI/long name, usually for an intrinsic functions.",
-					"Can be used in place of functionExpression.",
-					"In RDF+XML, <function rdf:resource=\"NAME_GOES_HERE\"/>."
+					"Alternate way to specify function by URI, e.g. in JSON.",
 				]
 			},
 			"arguments": {
