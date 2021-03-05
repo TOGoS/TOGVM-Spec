@@ -4,6 +4,19 @@
 	"http://ns.nuke24.net/TOGVM/Functions/Multiply": {},
 	"http://ns.nuke24.net/TOGVM/Functions/Divide": {},
 	"http://ns.nuke24.net/TOGVM/Functions/Add": {},
+	"http://ns.nuke24.net/TOGVM/Functions/Clamp": {
+		"arguments": [
+			{
+				"description": "value to be clamped"
+			},
+			{
+				"description": "minimum"
+			},
+			{
+				"description": "maximum"
+			},
+		]
+	},
 	"http://ns.nuke24.net/TOGVM/Functions/Subtract": {},
 	"http://ns.nuke24.net/TOGVM/Functions/Concatenate": {
 		"notes": [
