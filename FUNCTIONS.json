@@ -7,16 +7,16 @@
 			"argumentsAreHomogeneous' means:",
 			"- takes an arbitrarily long (0..*) list of arguments",
 			"- each argument has the same role",
-			"it does not necessarily mean commutative or associative",
+			"it does not necessarily mean commutative or associative"
 		],
 		"isCommutative": true,
-		"isAssociative": true,
+		"isAssociative": true
 	},
 	"http://ns.nuke24.net/TOGVM/Functions/Divide": {},
 	"http://ns.nuke24.net/TOGVM/Functions/Add": {
 		"argumentsAreHomogeneous": true,
 		"isCommutative": true,
-		"isAssociative": true,
+		"isAssociative": true
 	},
 	"http://ns.nuke24.net/TOGVM/Functions/Clamp": {
 		"arguments": [
@@ -28,7 +28,7 @@
 			},
 			{
 				"description": "maximum"
-			},
+			}
 		]
 	},
 	"http://ns.nuke24.net/TOGVM/Functions/Subtract": {},
