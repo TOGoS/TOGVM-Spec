@@ -1,9 +1,23 @@
 {
 	"http://ns.nuke24.net/TOGVM/Functions/BooleanNegate": {},
 	"http://ns.nuke24.net/TOGVM/Functions/Exponentiate": {},
-	"http://ns.nuke24.net/TOGVM/Functions/Multiply": {},
+	"http://ns.nuke24.net/TOGVM/Functions/Multiply": {
+		"argumentsAreHomogeneous": true,
+		"notes": [
+			"argumentsAreHomogeneous' means:",
+			"- takes an arbitrarily long (0..*) list of arguments",
+			"- each argument has the same role",
+			"it does not necessarily mean commutative or associative",
+		],
+		"isCommutative": true,
+		"isAssociative": true,
+	},
 	"http://ns.nuke24.net/TOGVM/Functions/Divide": {},
-	"http://ns.nuke24.net/TOGVM/Functions/Add": {},
+	"http://ns.nuke24.net/TOGVM/Functions/Add": {
+		"argumentsAreHomogeneous": true,
+		"isCommutative": true,
+		"isAssociative": true,
+	},
 	"http://ns.nuke24.net/TOGVM/Functions/Clamp": {
 		"arguments": [
 			{
@@ -19,12 +33,14 @@
 	},
 	"http://ns.nuke24.net/TOGVM/Functions/Subtract": {},
 	"http://ns.nuke24.net/TOGVM/Functions/Concatenate": {
+		"argumentsAreHomogeneous": true,
 		"notes": [
 			"Concatenates several sequences of the same or compatible item types.",
 			"e.g. strings, byte arrays, arrays of objects.",
 			"Concatenating character and byte sequences results in a byte sequence.",
 			"May be lazy."
-		]
+		],
+		"isAssociative": true
 	},
 	"http://ns.nuke24.net/TOGVM/Functions/IsGreaterThanOrEqualTo": {},
 	"http://ns.nuke24.net/TOGVM/Functions/IsLesserThanOrEqualTo": {},
@@ -33,9 +49,17 @@
 	"http://ns.nuke24.net/TOGVM/Functions/AreNotEqual": {},
 	"http://ns.nuke24.net/TOGVM/Functions/AreEqual": {},
 	"http://ns.nuke24.net/TOGVM/Functions/IsNull": {},
-	"http://ns.nuke24.net/TOGVM/Functions/And": {},
-	"http://ns.nuke24.net/TOGVM/Functions/Or": {},
+	"http://ns.nuke24.net/TOGVM/Functions/And": {
+		"argumentsAreHomogeneous": true,
+		"isAssociative": true
+	},
+	"http://ns.nuke24.net/TOGVM/Functions/Or": {
+		"argumentsAreHomogeneous": true,
+		"isAssociative": true
+	},
 	"http://ns.nuke24.net/TOGVM/Functions/Coalesce": {
+		"argumentsAreHomogeneous": true,
+		"isAssociative": true,
 		"notes": [
 			"Returns the value of the first non-null argument.",
 			"Should be lazy."
