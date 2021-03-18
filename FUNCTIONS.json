@@ -13,6 +13,7 @@
 		"isAssociative": true
 	},
 	"http://ns.nuke24.net/TOGVM/Functions/Divide": {},
+	"http://ns.nuke24.net/TOGVM/Functions/FlooredDivisionModulo": {},
 	"http://ns.nuke24.net/TOGVM/Functions/Add": {
 		"argumentsAreHomogeneous": true,
 		"isCommutative": true,
