@@ -13,7 +13,22 @@
 		"isAssociative": true
 	},
 	"http://ns.nuke24.net/TOGVM/Functions/Divide": {},
-	"http://ns.nuke24.net/TOGVM/Functions/FlooredDivisionModulo": {},
+	"http://ns.nuke24.net/TOGVM/Functions/FlooredDivisionModulo": {
+		"arguments": [
+			{
+				"name": "dividend",
+				"description": "value to be moduloed"
+			},
+			{
+				"name": "divisor",
+			}
+		],
+		"notes": [
+			"Reduces the dividend modulo the divisor.",
+			"'modulo' is not a verb, but programmers treat it like one,",
+			"and 'FlooredDivisionReduceModulo' felt excessively wordy."
+		]
+	},
 	"http://ns.nuke24.net/TOGVM/Functions/Add": {
 		"argumentsAreHomogeneous": true,
 		"isCommutative": true,
