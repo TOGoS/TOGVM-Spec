@@ -21,6 +21,7 @@ This is useful because people don't always want to write RDF+XML or JSON-LD dire
 This project consists of
 [[./FUNCTIONS.json][a JSON file describing 'built-in' functions]],
 [[./EXPRESSION-CLASSES.json][a JSON file describing expression classes]],
+[[./RDF-VOCAB.tef][a TEF file indicating some other RDF types/attributes]],
 and [[./test-vectors/][some test vectors]] (mostly about parsing based on the meta-language).
 
 ** History

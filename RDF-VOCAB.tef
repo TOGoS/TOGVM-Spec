@@ -1,0 +1,47 @@
+=type http://ns.nuke24.net/TOGVM/SourceLocation
+
+A location in source code where some object is defined.
+
+=attribute http://ns.nuke24.net/TOGVM/SourceLocation/file
+
+The file.
+
+=attribute http://ns.nuke24.net/TOGVM/SourceLocation/lineNumber
+
+The line number (first line being '1') where the object's definition starts.
+
+=attribute http://ns.nuke24.net/TOGVM/SourceLocation/columnNumber
+
+The column number (first column being '1') where the object's definition starts.
+
+=attribute http://ns.nuke24.net/TOGVM/SourceLocation/endLineNumber
+
+The line number (first line being '1') where the object's definition ends.
+
+=attribute http://ns.nuke24.net/TOGVM/SourceLocation/endColumnNumber
+
+The column number (first column being '1') where the object's definition ends.
+This should be the location of the first character *after* the end of the definition.
+
+e.g. if we have a single-line file called "whatever.txt" containing "foo (bar bar) quux",
+the "(bar baz)" expression would have
+a SourceLocation like {
+  file: <file:whatever.txt>
+  lineNumber: 1,
+  columnNumber: 5,
+  endLineNumber: 1,
+  endColumnNumber: 14
+}
+
+Line and column numbers start at 1 because that seems to be the most conventional way to do it.
+
+
+
+=attribute http://ns.nuke24.net/TOGVM/sourceLocation
+
+Indicates a source location of a given object.
+
+An object may have more than one source location,
+either because it represents deduplicated information,
+or because compilation happened in multiple stages,
+and source locations from intermediate representations are tracked.
