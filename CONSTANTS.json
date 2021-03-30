@@ -1,0 +1,12 @@
+{
+	"http://ns.nuke24.net/TOGVM/Constants/Pi": {
+		"notes": [
+			"Approximately 3.1415"
+		]
+	},
+	"http://ns.nuke24.net/TOGVM/Constants/E": {
+		"notes": [
+			"Approximately 2.7182"
+		]
+	}
+}
