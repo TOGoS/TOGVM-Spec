@@ -67,7 +67,11 @@
 	"http://ns.nuke24.net/TOGVM/Functions/IsNull": {},
 	"http://ns.nuke24.net/TOGVM/Functions/And": {
 		"argumentsAreHomogeneous": true,
-		"isAssociative": true
+		"isAssociative": true,
+		"notes": {
+			"Logical and.",
+			"Arguments and return values are booleans."
+		]
 	},
 	"http://ns.nuke24.net/TOGVM/Functions/Or": {
 		"argumentsAreHomogeneous": true,
