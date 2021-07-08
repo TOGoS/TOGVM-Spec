@@ -1,3 +1,7 @@
+Additional data types (besides expressions, which are documented in EXPRESSION-CLASSES.json)
+relating to TOGVM programs.
+
+
 =type http://ns.nuke24.net/TOGVM/SourceLocation
 
 A location in source code where some object is defined.
@@ -45,3 +49,30 @@ An object may have more than one source location,
 either because it represents deduplicated information,
 or because compilation happened in multiple stages,
 and source locations from intermediate representations are tracked.
+
+
+=type http://ns.nuke24.net/TOGVM/NamedValue
+optional-attribute: http://ns.nuke24.net/TOGVM/NamedValue/name : string
+optional-attribute: http://ns.nuke24.net/TOGVM/NamedValue/value : valueType
+
+=type http://ns.nuke24.net/TOGVM/Arguments
+optional-attribute: http://ns.nuke24.net/TOGVM/Arguments/positionalArguments ; List<any>
+optional-attribute: http://ns.nuke24.net/TOGVM/Arguments/namedArguments : List<NamedValue<any>>
+
+An object representing the entire list of arguments to or return values from a function.
+
+positionalArguments, if provided, should be a list (http://www.w3.org/1999/02/22-rdf-syntax-ns#list)
+of arguments.
+
+namedArguments, if provided, should be a list (http://www.w3.org/1999/02/22-rdf-syntax-ns#list)
+of http://ns.nuke24.net/TOGVM/NamedValue objects.
+
+
+=type http://ns.nuke24.net/TOGVM/Void
+
+Represents the lack of a value in contexts where a single value would otherwise be expected.
+
+
+=value http://ns.nuke24.net/TOGVM/Void/instance
+
+A blank instance of the Void type.

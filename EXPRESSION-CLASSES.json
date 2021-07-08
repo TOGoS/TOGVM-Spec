@@ -76,14 +76,30 @@
 					"Alternate way to specify function by URI, e.g. in JSON.",
 				]
 			},
-			"arguments": {
+			"argumentExpressions": {
 				"notes": [
 					"A list of argument expressions which will each evaluate to the corresponding argument value.",
 					"NamedValue and Splat expressions have special meaning as function arguments."
 				]
+			},
+			"arguments": {
+				"notes": [
+					"Deprecated name for argumentExpressions"
+				]
+			},
+			"argumentsExpression": {
+				"notes": [
+					"An expression that returns an object representing the entire arguments list."
+				]
 			}
 		},
 		"notes": [
+			"Apply a function with the given arguments.",
+			"",
+			"Although functions can return multiple values, the result of FunctionApplication is the first positional return value,",
+			"or a Void value if there were no return values.",
+			"Some to-be-defined mechanism should be used to apply a function and take the entire Arguments return object.",
+			"",
 			"Also acts as [multidimensional] array indexing operator!"
 		]
 	},
@@ -143,8 +159,16 @@
 	},
 	"http://ns.nuke24.net/TOGVM/Expression/IfElseChain": {
 		"properties": {
+			"argumentExpressions": {
+				"notes": [
+					"A list of alternating condition/result expressions, followed by a final 'otherwise' result expression;",
+					"must have an odd number of elements."
+				]
+			},
 			"arguments": {
-				"notes": ["A list of alternating condition/result expressions, followed by a final 'otherwise' result expression"]
+				"notes": [
+					"Deprecated name for argumentExpressions"
+				]
 			}
 		}
 	}
