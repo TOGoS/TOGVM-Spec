@@ -30,14 +30,14 @@
 	"http://ns.nuke24.net/TOGVM/Expression/Variable": {
 		"properties": {
 			"variableName": {
-				"longName": "http://ns.nuke24.net/TOGVM/Expression/Variable/variableName"
+				"longName": "http://ns.nuke24.net/TOGVM/Expression/Variable/variableName",
 				"notes": ["Some string identifying the variable"]
 			}
 		},
 		"notes": [
 			"Evaluates to the value of a variable.",
 			"Resolution semantics depend on the variable's scope.",
-			"For variables with URI-like identifiers, can use that identifier as the variable object's URI (rdf:about in RDF+XMLese).",
+			"For variables with URI-like identifiers, can use that identifier as the variable object's URI (rdf:about in RDF+XMLese)."
 		]
 	},
 	"http://ns.nuke24.net/TOGVM/Expression/Let": {
@@ -69,11 +69,11 @@
 			"function": {
 				"notes": [
 					"The function.  Probably a reference.  <function rdf:resource=\"...\"/> in RDF+XMLese."
-				],
+				]
 			},
 			"functionRef": {
 				"notes": [
-					"Alternate way to specify function by URI, e.g. in JSON.",
+					"Alternate way to specify function by URI, e.g. in JSON."
 				]
 			},
 			"argumentExpressions": {
@@ -155,7 +155,7 @@
 		 "deprecated": true,
 		 "notes": [
 			  "Old name (1.0.0) for NamedValue"
-		 ],
+		 ]
 	},
 	"http://ns.nuke24.net/TOGVM/Expression/IfElseChain": {
 		"properties": {

@@ -20,7 +20,7 @@
 				"description": "value to be moduloed"
 			},
 			{
-				"name": "divisor",
+				"name": "divisor"
 			}
 		],
 		"notes": [
@@ -68,7 +68,7 @@
 	"http://ns.nuke24.net/TOGVM/Functions/And": {
 		"argumentsAreHomogeneous": true,
 		"isAssociative": true,
-		"notes": {
+		"notes": [
 			"Logical and.",
 			"Arguments and return values are booleans."
 		]
