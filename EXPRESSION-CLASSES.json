@@ -1,27 +1,36 @@
 {
 	"http://ns.nuke24.net/TOGVM/Expression/LiteralString": {
 		"properties": {
-			"literalValue": {}
+			"literalValue": {
+				"longName": "http://ns.nuke24.net/TOGVM/Expression/literalValue"
+			}
 		}
 	},
 	"http://ns.nuke24.net/TOGVM/Expression/LiteralInteger": {
 		"properties": {
-			"literalValue": {}
+			"literalValue": {
+				"longName": "http://ns.nuke24.net/TOGVM/Expression/literalValue"
+			}
 		}
 	},
 	"http://ns.nuke24.net/TOGVM/Expression/LiteralNumber": {
 		"properties": {
-			"literalValue": {}
+			"literalValue": {
+				"longName": "http://ns.nuke24.net/TOGVM/Expression/literalValue"
+			}
 		}
 	},
 	"http://ns.nuke24.net/TOGVM/Expression/LiteralBoolean": {
 		"properties": {
-			"literalValue": {}
+			"literalValue": {
+				"longName": "http://ns.nuke24.net/TOGVM/Expression/literalValue"
+			}
 		}
 	},
 	"http://ns.nuke24.net/TOGVM/Expression/Variable": {
 		"properties": {
 			"variableName": {
+				"longName": "http://ns.nuke24.net/TOGVM/Expression/Variable/variableName"
 				"notes": ["Some string identifying the variable"]
 			}
 		},

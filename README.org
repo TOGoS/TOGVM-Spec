@@ -24,6 +24,12 @@ This project consists of
 [[./RDF-VOCAB.tef][a TEF file indicating some other RDF types/attributes]],
 and [[./test-vectors/][some test vectors]] (mostly about parsing based on the meta-language).
 
+** Long names of expression attributes
+
+Are not always spelled out in EXPRESSION-CLASSES.json.
+They should be assumed to be the expression class name + '/' + the short name
+unless explicitly indicated otherwise by 'longName'.
+
 ** History
 
 This project uses [[https://semver.org/][semantic versioning]].
