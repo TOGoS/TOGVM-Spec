@@ -54,7 +54,10 @@
 			"Concatenates several sequences of the same or compatible item types.",
 			"e.g. strings, byte arrays, arrays of objects.",
 			"Concatenating character and byte sequences results in a byte sequence.",
-			"May be lazy."
+			"",
+			"May (and should) be lazy to the point that a program that concatenates",
+			"a bunch of strings and then outputs them would actually just output",
+			"directly rather than actually build up anything in memory."
 		],
 		"isAssociative": true
 	},
