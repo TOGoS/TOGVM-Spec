@@ -27,6 +27,19 @@
 			}
 		}
 	},
+	"http://ns.nuke24.net/TOGVM/Expression/LiteralRDFObject": {
+		"properties": {
+			"literalValue": {}
+		},
+		"notes": [
+			"Evaluates to the abstract concept described by the literal value.",
+			"Since TOGVM expressions are themselves defined as RDF objects, other literal values can be embedded directly.",
+			"i.e. there is no additional 'serialization'.",
+			"If you cannot embed the object directly",
+			"(e.g. because the expression is encoded in some format that doesn't have a way to represent arbitrary RDF objects)",
+			"To represent the result of parsing a serialized RDF object, use a FunctionApplication of http://ns.nuke24.net/TOGVM/Functions/ParseRDFObject."
+		]
+	},
 	"http://ns.nuke24.net/TOGVM/Expression/Variable": {
 		"properties": {
 			"variableName": {
