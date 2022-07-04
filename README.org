@@ -27,7 +27,7 @@ and [[./test-vectors/][some test vectors]] (mostly about parsing based on the me
 ** Long names of expression attributes
 
 Are not always spelled out in EXPRESSION-CLASSES.json.
-They should be assumed to be the expression class name + '/' + the short name
+They should be assumed to be "http://ns.nuke24.net/TOGVM/Expression/" + the short name
 unless explicitly indicated otherwise by 'longName'.
 
 ** History

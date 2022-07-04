@@ -43,7 +43,7 @@
 	"http://ns.nuke24.net/TOGVM/Expression/Variable": {
 		"properties": {
 			"variableName": {
-				"longName": "http://ns.nuke24.net/TOGVM/Expression/Variable/variableName",
+				"longName": "http://ns.nuke24.net/TOGVM/Expression/variableName",
 				"notes": ["Some string identifying the variable"]
 			}
 		},
