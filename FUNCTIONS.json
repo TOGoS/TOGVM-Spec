@@ -47,6 +47,18 @@
 			}
 		]
 	},
+	"http://ns.nuke24.net/TOGVM/Functions/Min": {
+		"notes": [
+			"Returns the lowest-value argument, or +infinity if no arguments are given",
+			"Defined for numbers, or any other type that defines order."
+		]
+	},
+	"http://ns.nuke24.net/TOGVM/Functions/Max": {
+		"notes": [
+			"Returns the highest-value argument, or -infinity if no arguments are given.",
+			"Defined for numbers, or any other type that defines order."
+		]
+	},
 	"http://ns.nuke24.net/TOGVM/Functions/Subtract": {},
 	"http://ns.nuke24.net/TOGVM/Functions/Concatenate": {
 		"argumentsAreHomogeneous": true,
