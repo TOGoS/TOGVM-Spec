@@ -30,6 +30,11 @@ Are not always spelled out in EXPRESSION-CLASSES.json.
 They should be assumed to be "http://ns.nuke24.net/TOGVM/Expression/" + the short name
 unless explicitly indicated otherwise by 'longName'.
 
+To be backward-compatible with v1.1.x of the spec,
+the name of the speific expression type + "/" + the short name
+should be treated as an alias.  e.g. ~http://ns.nuke24.net/TOGVM/Expression/Let/variableValueExpressions~
+is an alias for ~http://ns.nuke24.net/TOGVM/Expression/variableValueExpressions~.
+
 ** History
 
 This project uses [[https://semver.org/][semantic versioning]].
