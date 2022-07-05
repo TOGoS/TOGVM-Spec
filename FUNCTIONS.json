@@ -101,39 +101,26 @@
 		]
 	},
 	
-	"http://ns.nuke24.net/TOGVM/Functions/ParseRDFObject": {
+	"http://ns.nuke24.net/TOGVM/Functions/InterpretData": {
 		"arguments": [
 			{
 				"name": "data",
-				"description": "The serialized RDF data"
-			},
-			{
-				"name": "format",
-				"isRequired": false,
-				"description": "A string naming the MIME format of the data, e.g. \"application/rdf+xml\""
-			}
-		],
-		"notes": [
-			"Returns the RDF object described by the specified 'data'.",
-			"'RDF object' here means an abstract concept described by a set of attributes an potentially a URI.",
-			"This may be redundant given ParseValue."
-		]
-	},
-	"http://ns.nuke24.net/TOGVM/Functions/ParseValue": {
-		"arguments": [
-			{
-				"name": "data",
-				"description": "The serialized RDF data"
+				"description": "The data that is to be interpreted somehow, to produce a conceptual value"
 			},
 			{
 				"name": "datatype",
-				"description": "URI identifying the datatype, e.g. http://www.w3.org/2001/XMLSchema#decimal"
+				"description": "The datatype, which is probably a URI reference, e.g. to http://www.w3.org/2001/XMLSchema#decimal"
 			}
 		],
 		"notes": [
-			"Returns the a value based on the given 'lexical representation' ('data') and RDF (which borrows the concept from XML) 'datatype'",
-			"http://infolab.stanford.edu/~melnik/rdf/datatyping/#s-p",
-			"https://www.w3.org/TR/rdf-primer/#rdfvalue"
+			"Returns the a value based on the given 'lexical representation' ('data') and RDF (which borrows the concept from XML) 'datatype'.",
+			"This is equivalent to the http://ns.nuke24.net/TOGVM/Expression/DataInterpretation expression,",
+			"but is here for use in contexts (like active URIs) where function applications are representable",
+			"but arbitrary TOGVM expressions are not.",
+			"",
+			"For info on the 'datatype' concept, see:",
+			"- http://infolab.stanford.edu/~melnik/rdf/datatyping/#s-p",
+			"- https://www.w3.org/TR/rdf-primer/#rdfvalue"
 		]
 	}
 }

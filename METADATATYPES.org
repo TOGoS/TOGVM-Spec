@@ -20,9 +20,10 @@ As far as TOGVM is concerned, there are four fundamental ways to refer to a valu
 
 Aside from literal values, which by definition do not include metadata, and can therefore only represent themselves,
 all of the above representations can be mapped to any other:
-- a functional expression can represent interpretation of a value or resolution of a URI as a function
+- a functional expression can represent interpretation of a value,
+  resolution of a URI, or description of RDF objects as expression types.
 - an RDF description can include an attribute specifying that the object is the result of evaluating an expression
-  or simply indicate that it is 'about' some named resource,
+  or simply indicate that it is 'about' some named resource.
 - we can invent arbitrary URI schemes to wrap the other representations
   (but we don't need to: I have alreay invented ~x-rdf-subject:~, and the [[https://netkernel.io/][1060.org guys]] already invented ~active:~).
 
@@ -131,3 +132,5 @@ This might not be a valid assumption, but I didn't want to write nested ~active:
 *** X-RDF-Subject URI
 
 If we are working in a system that natively handles RDF-described values, this is redundant!
+But we could create a URI that, either by using the ~x-rdf-subject:~ schema or
+the ~active:~ schema along with the ~http://ns.nuke24.net/TOGVM/Functions/ParseRDFObject~ function

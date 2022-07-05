@@ -30,3 +30,7 @@ JavaScript objects are not given any additional meaning; they are simply a mappi
 ** ~http://ns.nuke24.net/TOGVM/Datatypes/JSONLDValue~
 
 Value space: All resources.  The value is that described by a JSON-encoded object, as interpreted according to JSON-LD.
+
+** ~http://ns.nuke24.net/SynthGen2100/P0025/Datatypes/MCAS~
+
+Pares the data as multi-channel audio data, essentially.  More details in the P0025 documentation.

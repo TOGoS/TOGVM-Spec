@@ -74,6 +74,33 @@
 			"Each variable value expression is evaluated exactly once."
 		]
 	},
+	"http://ns.nuke24.net/TOGVM/Expression/DataInterpretation": {
+		"properties": {
+			"dataExpression": {
+				"notes": [
+					"An expression that resolves to the data (usually a string or byte sequence) to be interpreted"
+				]
+			},
+			"datatypeRef": {
+				"notes": [
+					"URI of the datatype, which indicates how to interpret the 'data' argument as a value.",
+				]
+			}
+		},
+		"notes": [
+			"Evaluates, if possible, to the value represented by `data`, interpreted according to the indicated `datatype`.",
+			"e.g. data=\"123.4\" and datatypeRef=\"http://www.w3.org/2001/XMLSchema#decimal\", the value is the number 123.4",
+			"Note that this is somewhat more flexible than the 'rdf:datatype' concept, as this can apply not only to literals,",
+			"but to any expression, and the 'lexical space' is not limited to character strings",
+			"(though it is probably best if limited to character strings and byte arrays).",
+			"",
+			"Useful in cases where it is more convenient to refer to the serialized form,",
+			"or where the conceptual value is entirely conceptual",
+			"(in which case the expression will never actually be evaluated, but passed around as a 'lazy' representation of the value).",
+			"In fact the main motivator of having this as an expression type, rather than a function,",
+			"is for use in contexts where values are represented as constant [simplified] TOGVM expressions."
+		]
+	},
 	"http://ns.nuke24.net/TOGVM/Expression/FunctionApplication": {
 		"properties": {
 			"functionExpression": {
