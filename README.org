@@ -76,7 +76,8 @@ Any computation that can be defined in terms of those is left to functions,
 which can be treated as 'opaque'.
 
 For example, you might want a dedicated expression type for representing rational or complex numbers
-so that the interpreter/compiler doesn't need to 'know about' arithmetic functions.
+so that the interpreter/compiler can reason about them (do 'symbolic manipulation'),
+but still be able to treat function applications as opaque.
 'concatenation' / 'union' / 'intersection' are other operations that may make sense
 to have dedicated expression classes, for the same reason.
 
@@ -94,3 +95,17 @@ And it may be a good idea to mark expression classes that exist only to simplify
 representation of certain function applications, with the implication
 that they can be a standard internal representation for systems that need them,
 but that 'in the wild' programs should use the functional form, instead.
+
+The expected transformation of the program, then, is that an 'external form'
+TOGVM expression, which uses only the most primitive expression types,
+is 'canonicalized' to whatever 'internal form' is most useful to the compiler/interpreter/analyzer,
+probably replacing certain function calls with equivalent expressions,
+and potentially evaluated to a 'value form' where most computation has been done,
+but some trivial operations such as concatenation or dereferencing of URNs
+might be left for later.
+
+e.g. if your expression represents a byte sequence
+to be written to a file or over the network, and the host system 'knows about' concatenation
+and references to a datastore, it can represent the concatenated value without
+having to actually load all the parts into memory.
+And since TOGVM-Spec exists, that abstract representation can be serialized in a standard way!
