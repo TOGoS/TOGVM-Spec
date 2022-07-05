@@ -55,3 +55,37 @@ This is the exact same idea [[https://www.unisonweb.org/][the Unison language]] 
 (I'm not sure who came up with the idea first
 (I've been toying with the idea since about 2010 or possibly earlier),
 but they have a nicer website than I do).
+
+** Functions vs expressions
+
+You might ask: why do some operations have dedicated [[./EXPRESSION-TYPES.json][expression types]],
+while others only have a [[./FUNCTIONS.json][function]]?
+
+The short answer is that, aside from wanting special expression types
+to represent primitive operations (like literals, variables, and control structures),
+the distinction is arbitrary.
+
+But generally, expression classes are defined for things that are expected to be
+primitive concepts in the language, or to be reasoned about without evaluating them.
+Any computation that can be defined in terms of those is left to functions,
+which can be treated as 'opaque'.
+
+For example, you might want a dedicated expression type for representing rational or complex numbers
+so that the interpreter/compiler doesn't need to 'know about' arithmetic functions.
+'concatenation' / 'union' / 'intersection' are other operations that may make sense
+to have dedicated expression classes, for the same reason.
+
+In some systems (e.g. TDAR, an ~active:~ URI resolver written in Deno),
+I use TOGVM expressions to represent both computations and their resulting values.
+Having dedicated expression types that make it possible to represent those values
+without having to refer to functions makes it possible to define a 'simplified expression'
+type that is a union of the expression classes that the system knows how to handle,
+which hopefully excludes function application!
+
+TOGVM-Spec *should* provide functional alternatives for any expression types
+that can be represented as functions.
+
+And it may be a good idea to mark expression classes that exist only to simplify
+representation of certain function applications, with the implication
+that they can be a standard internal representation for systems that need them,
+but that 'in the wild' programs should use the functional form, instead.
