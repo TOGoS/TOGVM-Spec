@@ -1,0 +1,32 @@
+#+TITLE: TOGVM-related datatypes, in the RDF value / XML schema sense
+
+https://www.w3.org/TR/rdf11-concepts/#section-Datatypes
+
+#+BEGIN_QUOTE
+A datatype consists of a lexical space, a value space and a lexical-to-value mapping, and is denoted by one or more IRIs.
+#+END_QUOTE
+
+i.e. a datatype indicates how to map the string representation to a value.
+
+The ~http://www.w3.org/2001/XMLSchema~ describes several useful datatypes,
+such as ~http://www.w3.org/2001/XMLSchema#decimal~, which maps e.g. "3.2" to the number 3+1/5.
+
+** ~http://ns.nuke24.net/TOGVM/Datatypes/RDFXMLValue~
+
+Lexical space: Valid RDF+XML documents with a single root node. 
+
+Value space: All resources.  The value is that which is described by the 'root' node.
+
+If there are multiple root nodes, then the document has no 'value' (unless 
+
+** ~http://ns.nuke24.net/TOGVM/Datatypes/JSONValue~
+
+Lexical space: Valid JSON-encoded values.
+
+Value space: floating-point numbers, character strings, lists, and JavaScript objects.
+JavaScript objects are not given any additional meaning; they are simply a mapping of attribute name to value
+(without the connotation of being a 'collection' per se!)
+
+** ~http://ns.nuke24.net/TOGVM/Datatypes/JSONLDValue~
+
+Value space: All resources.  The value is that described by a JSON-encoded object, as interpreted according to JSON-LD.

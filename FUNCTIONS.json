@@ -115,7 +115,25 @@
 		],
 		"notes": [
 			"Returns the RDF object described by the specified 'data'.",
-			"'RDF object' here means an abstract concept described by a set of attributes an potentially a URI."
+			"'RDF object' here means an abstract concept described by a set of attributes an potentially a URI.",
+			"This may be redundant given ParseValue."
+		]
+	},
+	"http://ns.nuke24.net/TOGVM/Functions/ParseValue": {
+		"arguments": [
+			{
+				"name": "data",
+				"description": "The serialized RDF data"
+			},
+			{
+				"name": "datatype",
+				"description": "URI identifying the datatype, e.g. http://www.w3.org/2001/XMLSchema#decimal"
+			}
+		],
+		"notes": [
+			"Returns the a value based on the given 'lexical representation' ('data') and RDF (which borrows the concept from XML) 'datatype'",
+			"http://infolab.stanford.edu/~melnik/rdf/datatyping/#s-p",
+			"https://www.w3.org/TR/rdf-primer/#rdfvalue"
 		]
 	}
 }

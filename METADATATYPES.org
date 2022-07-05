@@ -1,0 +1,133 @@
+#+TITLE: TOGVM's meta-datatypes
+
+TOGVM tries to be agnostic about the 'datatypes' that programs can process.
+But we need a way to talk *about* arbitrary values,
+and there may be multiple representations,
+which make sense to use depending on where the value came from,
+what it represents, and the context in which we're talking about it.
+
+The 'meta' in 'meta datatypes' refers to both:
+- We're talking about values in an abstract way which might be in terms of metadata
+  ('the value is the byte sequence that can be retrieved from this url: http://xxyyzz.example.com')
+- We're talking about the data types that represent that metadata!
+
+As far as TOGVM is concerned, there are four fundamental ways to refer to a value:
+
+- By storing the value literally (which really only works for byte sequences -- everything else is an interpretation!)
+- By describing the data using RDF
+- By providing a functional expression that (theoretically) provides the value as a result
+- By URI (which can actually encode any of the above!)
+
+Aside from literal values, which by definition do not include metadata, and can therefore only represent themselves,
+all of the above representations can be mapped to any other:
+- a functional expression can represent interpretation of a value or resolution of a URI as a function
+- an RDF description can include an attribute specifying that the object is the result of evaluating an expression
+  or simply indicate that it is 'about' some named resource,
+- we can invent arbitrary URI schemes to wrap the other representations
+  (but we don't need to: I have alreay invented ~x-rdf-subject:~, and the [[https://netkernel.io/][1060.org guys]] already invented ~active:~).
+
+Since TOGVM's expressions are defined as an RDF schema,
+it makes sense for RDF to be thought of as the 'native' representation for data, also.
+For performance reasons there may be optimizations, but
+*any meta-value in TOGVM should have a single, unambiguous RDF representation*.
+That is what will be shown below.
+
+As an example, I'll use the rational number 3/5 as the value to be represented,
+and show how it can be represented by different meta-value classes:
+
+
+*** Literal RDF object
+
+#+BEGIN_SRC xml
+<togvmv:RationalNumber xmlns:togvmv="http://ns.nuke24.net/TOGVM/Value/">
+  <togvmv:numerator>3</togvmv:numerator>
+  <togvmv:denominator>5</togvmv:denominator>
+</togvmv:RationalNumber>
+#+END_SRC
+
+*** Literal using datatype
+
+Since 3/5 happens to be exactly representable using decimal:
+
+#+BEGIN_SRC xml
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <rdf:value rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.6</rdf:value>
+</rdf:Resource>
+#+END_SRC
+
+*** Expression-defined value
+
+The rational number 3/5 happens to be the result of dividing 3 by 5,
+so we could represent it as the result of that expression
+using an otherwise-blank RDF object with the ~http://ns.nuke24.net/TOGVM/Value/isResultOfExpression~ attribute:
+
+#+BEGIN_SRC xml
+<rdf:Description
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:togvmv="http://ns.nuke24.net/TOGVM/Value/"
+  xmlns:togvme="http://ns.nuke24.net/TOGVM/Expression/"
+  xmlns:togvmf="http://ns.nuke24.net/TOGVM/Expression/"
+>
+  <togvmv:isResultOfExpression>
+    <togvme:FunctionApplication>
+      <togvme:argumentExpressions rdf:parseType="Collection">
+        <togvme:LiteralInteger><togvme:literalValue>3</togvme:literalValue></togvme:LiteralInteger>
+        <togvme:LiteralInteger><togvme:literalValue>5</togvme:literalValue></togvme:LiteralInteger>
+      </togvme:argumentExpressions>
+    </togvme:FunctionApplication>
+  </togvmv:isResultOfExpression>
+</rdf:Resource>
+#+END_SRC
+
+*** URI (specialized made-up scheme)
+
+You can name *anything* with a URI!  Even the concept of naming things with a URI!
+(for the record, that URI is `urn:uuid:df24f73d-377a-425d-b9c9-345a86283ca6`)
+
+There's no formalized URI scheme for rational numbers.  But we could invent a very specialized one if we had to:
+
+`x-rational-number:3/5`.
+
+Our RDF representation could then be:
+
+#+BEGIN_SRC xml
+<rdf:Description xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="x-rational-number:3/5"/>
+#+END_SRC
+
+Or, to include the type:
+
+#+BEGIN_SRC xml
+<togvmv:RationalNumber xmlns:togvmv="http://ns.nuke24.net/TOGVM/Value/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" rdf:about="x-rational-number:3/5"/>
+#+END_SRC
+
+*** URI (less specialized made-up scheme)
+
+Since we already have the concept of datatypes, we could invent a URI scheme that applies a datatype to a string to provide a value.
+But since this is a URI consisting of other URIs, we'd have to come up with an encoding,
+and I happen to know of a URI scheme that does that.
+
+
+*** Active URI (datatype)
+
+Use the ~http://ns.nuke24.net/TOGVM/Functions/ParseValue~ function from an Active URI:
+
+#+BEGIN_SRC
+active:http://ns.nuke24.net/TOGVM/Functions/ParseValue+data@data:,3/5+datatype@http%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23decimal
+#+END_SRC
+
+*** Active URI (division)
+
+Use the ~http://ns.nuke24.net/TOGVM/Functions/Divide~ function from an Active URI:
+
+#+BEGIN_SRC
+active:http://ns.nuke24.net/TOGVM/Functions/Dividee+numerator@data:,3+denominator@data:,5
+#+END_SRC
+
+Note that this example cheated a little bit.  The strings "3" and "5" were passed as numerator and denominator to the ~Divide~ function,
+so we're just hoping that ~Divide~ will make the assumption that since it doesn't make sense to divide strings,
+they should be treated as decimal representations of numbers.
+This might not be a valid assumption, but I didn't want to write nested ~active:~ URIs.  They can become unwieldy.
+
+*** X-RDF-Subject URI
+
+If we are working in a system that natively handles RDF-described values, this is redundant!
