@@ -180,15 +180,17 @@
 				 "notes": [ "The name, a string" ]
 			},
 			"nameExpression": {
-				 "notes": [ "An expression that provides the name" ]
+				 "notes": [ "An expression that evaluates to the name" ]
 			},
 			"valueExpression": {
-				"notes": [ "An expression that provides the argument value" ]
+				"notes": [ "An expression that evaluates to the argument value" ]
 			}
 		},
 		"notes": [
-			"Only valid as a function argument.",
-			"Either 'name' or 'nameExpression' must be specified."
+			"A 'named value' doesn't represent a value per se, but provides context (the name)",
+			"that is only meaningful in certain contexts, such as function arguments or variableValueExpression lists.",
+			"Using a NamedValue elsewhere is an error.",
+			"Either 'name' or 'nameExpression' must be specified"
 		]
 	},
 	"http://ns.nuke24.net/TOGVM/Expression/NamedArgument": {
