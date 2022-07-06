@@ -110,10 +110,10 @@ and I happen to know of a URI scheme that does that.
 
 *** Active URI (datatype)
 
-Use the ~http://ns.nuke24.net/TOGVM/Functions/ParseValue~ function from an Active URI:
+Use the ~http://ns.nuke24.net/TOGVM/Functions/InterpretData~ function from an Active URI:
 
 #+BEGIN_SRC
-active:http://ns.nuke24.net/TOGVM/Functions/ParseValue+data@data:,3/5+datatype@http%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23decimal
+active:http://ns.nuke24.net/TOGVM/Functions/InterpretData+data@data:,3/5+datatype@http%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23decimal
 #+END_SRC
 
 *** Active URI (division)
