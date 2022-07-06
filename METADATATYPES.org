@@ -28,8 +28,10 @@ all of the above representations can be mapped to any other:
   (but we don't need to: I have alreay invented ~x-rdf-subject:~, and the [[https://netkernel.io/][1060.org guys]] already invented ~active:~).
 
 Since TOGVM's expressions are defined as an RDF schema,
-it makes sense for RDF to be thought of as the 'native' representation for data, also.
-For performance reasons there may be optimizations, but
+it might make sense in some contexts for RDF to be thought of as the 'native' representation for data, also
+(if not just using a subset of the expression language!  But since that is itself represented as RDF..).
+
+For performance reasons there may be optimizations for how values are represented within a program, but
 *any meta-value in TOGVM should have a single, unambiguous RDF representation*.
 That is what will be shown below.
 
@@ -132,5 +134,17 @@ This might not be a valid assumption, but I didn't want to write nested ~active:
 *** X-RDF-Subject URI
 
 If we are working in a system that natively handles RDF-described values, this is redundant!
-But we could create a URI that, either by using the ~x-rdf-subject:~ schema or
-the ~active:~ schema along with the ~http://ns.nuke24.net/TOGVM/Functions/ParseRDFObject~ function
+
+But if we had to, we could use eother the 'x-rdf-subject' URI scheme:
+
+#+BEGIN_SRC
+x-rdf-subject:data:application/rdf+xml;charset=utf-8;base64,PHRvZ3ZtdjpSYXRpb25hbE51bWJlciB4bWxuczp0b2d2bXY9Imh0dHA6Ly9ucy5udWtlMjQubmV0L1RPR1ZNL1ZhbHVlLyI+DQogIDx0b2d2bXY6bnVtZXJhdG9yPjM8L3RvZ3ZtdjpudW1lcmF0b3I+DQogIDx0b2d2bXY6ZGVub21pbmF0b3I+NTwvdG9ndm12OmRlbm9taW5hdG9yPg0KPC90b2d2bXY6UmF0aW9uYWxOdW1iZXI+
+#+END_SRC
+
+...or use the ~http://ns.nuke24.net/TOGVM/Functions/InterpretData~ function in an Active URI:
+
+#+BEGIN_SRC
+active:http%3A%2F%2Fns.nuke24.net%2FTOGVM%2FFunctions%2FInterpretData+datatype@http://ns.nuke24.net/TOGVM/Datatypes/RDFXMLValue+data@data%3Aapplication%2Frdf%2Bxml%3Bcharset%3Dutf-8%3Bbase64%2CPHRvZ3ZtdjpSYXRpb25hbE51bWJlciB4bWxuczp0b2d2bXY9Imh0dHA6Ly9ucy5udWtlMjQubmV0L1RPR1ZNL1ZhbHVlLyI%2BDQogIDx0b2d2bXY6bnVtZXJhdG9yPjM8L3RvZ3ZtdjpudW1lcmF0b3I%2BDQogIDx0b2d2bXY6ZGVub21pbmF0b3I%2BNTwvdG9ndm12OmRlbm9taW5hdG9yPg0KPC90b2d2bXY6UmF0aW9uYWxOdW1iZXI%2B
+#+END_SRC
+
+As you can see, TIMTOWTDI.
