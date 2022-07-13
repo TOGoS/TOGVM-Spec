@@ -22,7 +22,17 @@ This project consists of
 [[./FUNCTIONS.json][a JSON file describing 'built-in' functions]],
 [[./EXPRESSION-CLASSES.json][a JSON file describing expression classes]],
 [[./RDF-VOCAB.tef][a TEF file indicating some other RDF types/attributes]],
+[[./DATATYPES.org][documentation of some XML datatypes]],
+[[./METADATATYPES.org][an essay translating between different ways of talking about values]],
 and [[./test-vectors/][some test vectors]] (mostly about parsing based on the meta-language).
+
+This information could probably be organized a bit better,
+and maybe all be represented as RDF/XML itself instead
+of a mishmash of org, JSON, and TEF files,
+some of which is pretty concrete (expression types),
+and some of which is [[./METADATATYPES.org][more theoretical]]
+and mostly here to guide how I think about values while crafting interpreters/compilers.
+
 
 ** Long names of expression attributes
 
