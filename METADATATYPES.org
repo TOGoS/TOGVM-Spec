@@ -115,7 +115,7 @@ and I happen to know of a URI scheme that does that.
 Use the ~http://ns.nuke24.net/TOGVM/Functions/InterpretData~ function from an Active URI:
 
 #+BEGIN_SRC
-active:http://ns.nuke24.net/TOGVM/Functions/InterpretData+data@data:,3/5+datatype@http%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23decimal
+active:http://ns.nuke24.net/TOGVM/Functions/InterpretData+data@data:,0.6+datatype@http%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23decimal
 #+END_SRC
 
 *** Active URI (division)
@@ -123,13 +123,15 @@ active:http://ns.nuke24.net/TOGVM/Functions/InterpretData+data@data:,3/5+datatyp
 Use the ~http://ns.nuke24.net/TOGVM/Functions/Divide~ function from an Active URI:
 
 #+BEGIN_SRC
-active:http://ns.nuke24.net/TOGVM/Functions/Dividee+numerator@data:,3+denominator@data:,5
+active:http://ns.nuke24.net/TOGVM/Functions/Divide+numerator@data:,3+denominator@data:,5
 #+END_SRC
 
 Note that this example cheated a little bit.  The strings "3" and "5" were passed as numerator and denominator to the ~Divide~ function,
 so we're just hoping that ~Divide~ will make the assumption that since it doesn't make sense to divide strings,
 they should be treated as decimal representations of numbers.
 This might not be a valid assumption, but I didn't want to write nested ~active:~ URIs.  They can become unwieldy.
+Active URIs are probably the worst representation of arbitrary expressions as far as human readability is concerned.
+But they are very easy for computers to deal with, if verbose.
 
 *** X-RDF-Subject URI
 
