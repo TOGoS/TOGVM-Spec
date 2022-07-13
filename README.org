@@ -109,3 +109,11 @@ to be written to a file or over the network, and the host system 'knows about' c
 and references to a datastore, it can represent the concatenated value without
 having to actually load all the parts into memory.
 And since TOGVM-Spec exists, that abstract representation can be serialized in a standard way!
+
+** See also
+
+- [[https://openmath.org/about/][OpenMath]] appears to be a standard with similar goals to TOGVM.
+  Its data structures are not explicitly RDF-based, but they do mention RDF in the standard
+  (e.g. their sin function is [[https://openmath.org/cd/transc1#sin]]),
+  and it seems like expressions represented in OpenMath's model
+  could be mapped pretty easily to/from TOGVM expressions.
