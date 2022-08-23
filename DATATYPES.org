@@ -34,3 +34,21 @@ Value space: All resources.  The value is that described by a JSON-encoded objec
 ** ~http://ns.nuke24.net/SynthGen2100/P0025/Datatypes/MCAS~
 
 Pares the data as multi-channel audio data, essentially.  More details in the P0025 documentation.
+
+** ~http://ns.nuke24.net/TOGVM/Datatypes/TEFArchive~
+
+A directory encoded as TEF.  A text-based archive format where files are represented as:
+
+#+BEGIN_SRC
+=file FILENAME_GOES_HERE.TXT
+ANY-METADATA: GOES HERE
+
+CONTENT
+GOES
+HERE
+#+END_SRC
+
+Capital letter indicate placeholders.  See [[https://github.com/TOGoS/TEF]] for more info.
+Content encoding follows TEF v0.3.0 conventions.
+The last newline before the '=' of a new entry is not considered part of the content.
+(What about the last newline before end of file?  Hmm, may need to update the TEF spec.)

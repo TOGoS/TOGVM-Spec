@@ -85,6 +85,15 @@
 				"notes": [
 					"URI of the datatype, which indicates how to interpret the 'data' argument as a value.",
 				]
+			},
+			"fragmentId": {
+				"notes": [
+					"A name whose meaning depends on the source format,",
+					"indicating which object from the source we are referring to.",
+					"In an RDF document, this might be the node ID.",
+					"If fragmentId is empty string or not present (these cases should be treated as equivalent),"
+					"the 'root' object is being referred to."
+				]
 			}
 		},
 		"notes": [

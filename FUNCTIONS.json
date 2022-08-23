@@ -110,6 +110,10 @@
 			{
 				"name": "datatype",
 				"description": "The datatype, which is probably a URI reference, e.g. to http://www.w3.org/2001/XMLSchema#decimal"
+			},
+			{
+				"name": "fragmentId",
+				"description": "Optional (default is empty string) fragment identifier"
 			}
 		],
 		"notes": [
