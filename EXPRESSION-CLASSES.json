@@ -74,6 +74,22 @@
 			"Each variable value expression is evaluated exactly once."
 		]
 	},
+	"http://ns.nuke24.net/TOGVM/Expression/Concatenation": {
+		"properties": {
+			"valueExpressions": {
+				"notes": [
+					"List of expressions whose values are to be concatenated"
+				]
+			}
+		},
+		"notes": [
+			"Equivalent to an application of http://ns.nuke24.net/TOGVM/Functions/Concatenate.",
+			"In general, that function application should be used instead of this expression type.",
+			"This expression type is defined in order to represent the result of the concatenation function",
+			"as a primitive expression (without having to refer to the function) and without having",
+			"to actually perform the concatenation in contexts where that is useful."
+		]
+	},
 	"http://ns.nuke24.net/TOGVM/Expression/DataInterpretation": {
 		"properties": {
 			"dataExpression": {
