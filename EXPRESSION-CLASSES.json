@@ -83,7 +83,7 @@
 			},
 			"datatypeRef": {
 				"notes": [
-					"URI of the datatype, which indicates how to interpret the 'data' argument as a value.",
+					"URI of the datatype, which indicates how to interpret the 'data' argument as a value."
 				]
 			},
 			"fragmentId": {
