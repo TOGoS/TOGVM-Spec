@@ -11,6 +11,24 @@ i.e. a datatype indicates how to map the string representation to a value.
 The ~http://www.w3.org/2001/XMLSchema~ describes several useful datatypes,
 such as ~http://www.w3.org/2001/XMLSchema#decimal~, which maps e.g. "3.2" to the number 3+1/5.
 
+** ~http://ns.nuke24.net/TOGVM/Datatypes/URIResource~
+
+Lexical space: URIs.
+
+Value space: Any resource that can be named by a URI.
+
+The lexical-to-value mapping of a given URI is the resource
+identified by that URI.  For HTTP and hash URIs, the resource
+is always a byte sequence, possibly with some metadata attached
+(e.g. `Content-Type` hints at the content's `http://purl.org/dc/terms/format`),
+but other URI schemes may allow references to more abstract resources.
+
+Note that ~http://www.w3.org/2001/XMLSchema#anyURI~
+(as documented [[https://www.w3.org/TR/xmlschema-2/#anyURI][here]])
+does *not* specify the value as being the target of the URI.
+Deocding a string by `anyURI` results the URI itself;
+i.e. basically a string with a flat on it saying "I am a URI".
+
 ** ~http://ns.nuke24.net/TOGVM/Datatypes/RDFXMLValue~
 
 Lexical space: Valid RDF+XML documents with a single root node. 
@@ -52,3 +70,39 @@ Capital letter indicate placeholders.  See [[https://github.com/TOGoS/TEF]] for 
 Content encoding follows TEF v0.3.0 conventions.
 The last newline before the '=' of a new entry is not considered part of the content.
 (What about the last newline before end of file?  Hmm, may need to update the TEF spec.)
+
+** ~http://ns.nuke24.net/TOGVM/Datatypes/DescribedInEnglish~
+
+Lexical space: any text that might be interpreted by an English speaker.
+
+Value space: any resource.
+
+e.g. "Dan and Joh's small red Shop-Vac", "WSITEM-200354", and "urn:oid:1.3.6.1.4.1.44868.260.200354"
+would all resolve to our small red Shop-Vac, since URIs are a subset of English descriptions.
+
+This is obviously an extremely informal, ill-defined datatype,
+but it's here as an escape hatch for when I want to talk about a thing
+that is otherwise hard to build a URI for.
+
+** ~http://ns.nuke24.net/TOGVM/Datatypes/TS34Encoded~
+
+Lexical space: strings of the format: data URI + [whitespace + datatype URI]
+
+Value space: All resources.
+
+Mapping: The first URI indicates the encoded form of the value.  May often be a 'data:' URI.
+Each URI following names a datatype whose lexical->value mapping should be applied,
+in order, to resolve the represented value.
+
+This datatype may be useful even when only one datatype is applied,
+since it allows you to type non-literals in RDF!
+
+It also provides a universal format for referencing:
+- Literal strings (just put a data: URI and be done with it)
+- Other web resources (any other URI)
+- Other literal values (decimal numbers, rational numbers, lists...)
+- Interpretation of any of the above based on any other datatype!
+
+For some suggested alternative uses of this datatype's URI,
+especially regarding use in JavaScript/JSON objects,
+see [[./brainstormy-notes/DATATYPES.md#TS34Encoded%20Datatype][TS34Encoded Datatype]].

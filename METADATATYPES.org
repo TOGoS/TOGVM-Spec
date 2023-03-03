@@ -11,12 +11,13 @@ The 'meta' in 'meta datatypes' refers to both:
   ('the value is the byte sequence that can be retrieved from this url: http://xxyyzz.example.com')
 - We're talking about the data types that represent that metadata!
 
-As far as TOGVM is concerned, there are four fundamental ways to refer to a value:
+As far as TOGVM is concerned, there are five fundamental ways to refer to a value:
 
 - By storing the value literally (which really only works for byte sequences -- everything else is an interpretation!)
 - By describing the data using RDF
 - By providing a functional expression that (theoretically) provides the value as a result
-- By URI (which can actually encode any of the above!)
+- By URI
+- By TS34Encoded string
 
 Aside from literal values, which by definition do not include metadata, and can therefore only represent themselves,
 all of the above representations can be mapped to any other:
@@ -26,6 +27,9 @@ all of the above representations can be mapped to any other:
   or simply indicate that it is 'about' some named resource.
 - we can invent arbitrary URI schemes to wrap the other representations
   (but we don't need to: I have alreay invented ~x-rdf-subject:~, and the [[https://netkernel.io/][1060.org guys]] already invented ~active:~).
+- TS34Encoded strings combine a URI with a list of datatypes,
+  so can represent anything that can be represented by a URI, which is already everything,
+  and any value of any defined datatype (including TS34Encoded itself!)
 
 Since TOGVM's expressions are defined as an RDF schema,
 it might make sense in some contexts for RDF to be thought of as the 'native' representation for data, also
@@ -79,7 +83,7 @@ using an otherwise-blank RDF object with the ~http://ns.nuke24.net/TOGVM/Value/i
       </togvme:argumentExpressions>
     </togvme:FunctionApplication>
   </togvmv:isResultOfExpression>
-</rdf:Resource>
+</rdf:Description>
 #+END_SRC
 
 *** URI (specialized made-up scheme)

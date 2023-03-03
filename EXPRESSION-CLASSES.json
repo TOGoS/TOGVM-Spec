@@ -99,16 +99,22 @@
 			},
 			"datatypeRef": {
 				"notes": [
-					"URI of the datatype, which indicates how to interpret the 'data' argument as a value."
+					"URI of the datatype, which indicates how 'data' is to be interpreted.",
+					"If zero or more than one encodings have been applied, use the plural 'datatypeRefs' instead."
+				]
+			},
+			"datatypeRefs": {
+				"notes": [
+					"URIs of datatypes indicating how 'data' is to be interpreted,",
+					"in order that their decode steps would need to be applied to get the original value."
 				]
 			},
 			"fragmentId": {
 				"notes": [
-					"A name whose meaning depends on the source format,",
-					"indicating which object from the source we are referring to.",
+					"A name whose meaning depends on the source format, indicating which object from the source we are referring to.",
 					"In an RDF document, this might be the node ID.",
-					"If fragmentId is empty string or not present (these cases should be treated as equivalent),"
-					"the 'root' object is being referred to."
+					"If fragmentId is empty string or not present (these cases should be treated as equivalent), the 'root' object is being referred to.",
+					"Only makes sense when a single datatypeRef is provided; if zero or multiple, 'fragmentId' does not make sense."
 				]
 			}
 		},
@@ -123,7 +129,9 @@
 			"or where the conceptual value is entirely conceptual",
 			"(in which case the expression will never actually be evaluated, but passed around as a 'lazy' representation of the value).",
 			"In fact the main motivator of having this as an expression type, rather than a function,",
-			"is for use in contexts where values are represented as constant [simplified] TOGVM expressions."
+			"is for use in contexts where values are represented as constant [simplified] TOGVM expressions.",
+			"",
+			"A fairly direct expression equivalent of TS34Encoded strings."
 		]
 	},
 	"http://ns.nuke24.net/TOGVM/Expression/FunctionApplication": {

@@ -60,6 +60,17 @@
 		]
 	},
 	"http://ns.nuke24.net/TOGVM/Functions/Subtract": {},
+	"http://ns.nuke24.net/TOGVM/Functions/ConstructArray": {
+		"argumentsAreHomogeneous": true,
+		"arguments": {
+			"item": {
+				"description": "An item to be included in the resulting array ('list', 'finite sequence', whatever)."
+			}
+		},
+		"notes": {
+			"Creates a sequence of items of any type."
+		}
+	},
 	"http://ns.nuke24.net/TOGVM/Functions/Concatenate": {
 		"argumentsAreHomogeneous": true,
 		"notes": [
@@ -69,7 +80,8 @@
 			"",
 			"May (and should) be lazy to the point that a program that concatenates",
 			"a bunch of strings and then outputs them would actually just output",
-			"directly rather than actually build up anything in memory."
+			"directly rather than actually build up anything in memory,",
+			"and concatenating infinite sequences should not block."
 		],
 		"isAssociative": true
 	},
@@ -112,15 +124,27 @@
 				"description": "The datatype, which is probably a URI reference, e.g. to http://www.w3.org/2001/XMLSchema#decimal"
 			},
 			{
+				"name": "Datatypes",
+				"description": "A list of datatypes, in decode order.  Alternative to 'datatype'"
+			},
+			{
 				"name": "fragmentId",
 				"description": "Optional (default is empty string) fragment identifier"
 			}
 		],
 		"notes": [
 			"Returns the a value based on the given 'lexical representation' ('data') and RDF (which borrows the concept from XML) 'datatype'.",
-			"This is equivalent to the http://ns.nuke24.net/TOGVM/Expression/DataInterpretation expression,",
+			"This is equivalent to an http://ns.nuke24.net/TOGVM/Expression/DataInterpretation expression",
+			"or a TS34Encoded string,",
 			"but is here for use in contexts (like active URIs) where function applications are representable",
 			"but arbitrary TOGVM expressions are not.",
+			"",
+			"In contexts where multiple same-named arguments can be provided and have defined order,",
+			"multiple 'datatype' arguments can be provided as an alternative to constructing a list,",
+			"and passing it as 'datatypes', and in those cases it may even be acceptable for both",
+			"'datatype' and 'datatypes' arguments to be provided -- the lists will simply be concatenated together.",
+			"It is probably better not to rely on this, and certainly best to throw an error in cases",
+			"where the order is at all ambiguous.",
 			"",
 			"For info on the 'datatype' concept, see:",
 			"- http://infolab.stanford.edu/~melnik/rdf/datatyping/#s-p",
