@@ -1,4 +1,4 @@
-## Type classes
+## 2015-02-26: An idea about 'type classes'
 
 Type classes indicate how data values can be used, but not what they mean.
 
@@ -6,13 +6,17 @@ E.g. a URL and the contents of a file might both be represented by a
 List[Byte], but have very different meanings.  Roles are used to
 distinguish those.  This is kind of analogous to how in some
 languages, a float and an int might both be representable using the
-same 32-bit value, but you can cast to one or the other and that can
-determine which overloaded function is called.
+same 32-bit value, but those bits have very different meanings,
+and which type a function parameter has can
+determine which overloaded version of the function is called.
+
+Now let's say in our hypothetical system...
 
 The way in which a type class implments a role is also indicated
 separately from either.  E.g. if we want to treat a PHP array as a
-function, we can either treat it as a [object,method name] callback,
-or as a function of its keys to its values.
+function, there are a couple of obvious interpretations:
+- as a [someObject, methodName] callback, as per PHP `callable` convention (`myArray(foo)` calls the method)
+- as a function of its keys to its values (`myArray(0)` returns `someObject`)
 
 In the following, '<' means 'can be used as'.
 
