@@ -106,3 +106,11 @@ It also provides a universal format for referencing:
 For some suggested alternative uses of this datatype's URI,
 especially regarding use in JavaScript/JSON objects,
 see [[./brainstormy-notes/DATATYPES.md#TS34Encoded%20Datatype][TS34Encoded Datatype]].
+
+** ~http://ns.nuke24.net/Datatypes/Subject~
+
+Subject of document.  Identical to ~http://ns.nuke24.net/TOGVM/Datatypes/RDFXMLValue~
+when the document is an RDF+XML document, but is defined
+for other formats, such as [[https://www.nuke24.net/docs/2012/TOGoSBinaryBlocks.html][TOGoS Binary/Text Blocks]].
+
+See [[http://www.nuke24.net/docs/2023/SubjectDatatype.html][The Subject Datatype]] for more info and mappings for specific formats.
