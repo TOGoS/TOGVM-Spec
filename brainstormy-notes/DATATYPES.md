@@ -137,6 +137,10 @@ so much sense to worry about symmetry.
 
 ### TS34Encoded Datatype
 
+Note: These notes are accurate but use a deprecated name.
+See http://www.nuke24.net/docs/2023/TS34EncodedDatatype.html for canonical documentation
+about this datatype.
+
 `http://ns.nuke24.net/TOGVM/Datatypes/TS34Encoded` names a datatype,
 which is documented in [DATATYPES.org](../DATATYPES.org).
 

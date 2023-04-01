@@ -84,7 +84,9 @@ This is obviously an extremely informal, ill-defined datatype,
 but it's here as an escape hatch for when I want to talk about a thing
 that is otherwise hard to build a URI for.
 
-** ~http://ns.nuke24.net/TOGVM/Datatypes/TS34Encoded~
+** ~http://ns.nuke24.net/Datatypes/TS34Encoded~
+
+[[http://www.nuke24.net/docs/2023/TS34EncodedDatatype.html][Canonical documentation]].
 
 Lexical space: strings of the format: data URI + [whitespace + datatype URI]
 
@@ -106,6 +108,10 @@ It also provides a universal format for referencing:
 For some suggested alternative uses of this datatype's URI,
 especially regarding use in JavaScript/JSON objects,
 see [[./brainstormy-notes/DATATYPES.md#TS34Encoded%20Datatype][TS34Encoded Datatype]].
+
+** ~http://ns.nuke24.net/TOGVM/Datatypes/TS34Encoded~
+
+Deprecated alias for ~http://ns.nuke24.net/Datatypes/TS34Encoded~
 
 ** ~http://ns.nuke24.net/Datatypes/Subject~
 
