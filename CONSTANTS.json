@@ -1,4 +1,14 @@
 {
+	"http://ns.nuke24.net/TOGVM/Constants/True": {
+		"notes": [
+			"The canonical true value.  The thing returned by a LiteralBoolean with booleanValue: true"
+		]
+	},
+	"http://ns.nuke24.net/TOGVM/Constants/False": {
+		"notes": [
+			"The canonical false value.  The thing returned by a LiteralBoolean with booleanValue: false"
+		]
+	},
 	"http://ns.nuke24.net/TOGVM/Constants/Pi": {
 		"notes": [
 			"Approximately 3.1415"
