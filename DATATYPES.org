@@ -13,6 +13,10 @@ such as ~http://www.w3.org/2001/XMLSchema#decimal~, which maps e.g. "3.2" to the
 
 ** ~http://ns.nuke24.net/TOGVM/Datatypes/URIResource~
 
+Deprecated name for ~http://ns.nuke24.net/Datatypes/URIResource~
+
+** ~http://ns.nuke24.net/Datatypes/URIResource~
+
 Lexical space: URIs.
 
 Value space: Any resource that can be named by a URI.
